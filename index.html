@@ -45,10 +45,14 @@
     }
   </script>
 
-  <!-- External CDN 2: GSAP (GreenSock) for high-end micro-animations -->
+  <!-- External CDN 2: GSAP for Sovereign Micro-Animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
+  <!-- Embedded Sovereign Styles (Bulletproof default visibility) -->
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
       background-color: #05070a;
       color: #e2e8f0;
@@ -57,6 +61,8 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      margin: 0;
+      padding: 0;
     }
     .font-cinzel {
       font-family: 'Cinzel', serif;
@@ -72,13 +78,12 @@
       outline: none;
       box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.4);
     }
+    /* Explicit stage visibility rules */
     .stage-view {
       display: none;
-      opacity: 0;
     }
     .stage-view.active {
-      display: block;
-      opacity: 1;
+      display: block !important;
     }
     ::-webkit-scrollbar {
       width: 6px;
@@ -114,7 +119,7 @@
   <!-- ========================================================================= -->
   <!-- CONFIRMATION PAGE EXCLUSIVE NAVBAR (ZERO-NAVBAR ON PARTS 1-5 AS SPECIFIED) -->
   <!-- ========================================================================= -->
-  <header id="global-navbar" class="hidden w-full border-b border-white/10 bg-[#07090e]/90 backdrop-blur-md sticky top-0 z-50">
+  <header id="global-navbar" class="hidden w-full border-b border-white/10 bg-[#07090e]/95 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center space-x-3">
         <div class="w-8 h-8 rounded-sm bg-gradient-to-br from-[#d4af37] to-[#8c6d1f] flex items-center justify-center shadow-lg shadow-[#d4af37]/10">
@@ -150,12 +155,12 @@
         <span id="stage-ratio-label" class="text-slate-400 font-mono">20% COMPLETED</span>
       </div>
       <div class="w-full bg-[#141a24] h-1 rounded-full overflow-hidden border border-white/5">
-        <div id="stage-master-progress" class="bg-gradient-to-r from-[#d4af37] via-[#f1d77a] to-[#d4af37] h-full" style="width: 20%;"></div>
+        <div id="stage-master-progress" class="bg-gradient-to-r from-[#d4af37] via-[#f1d77a] to-[#d4af37] h-full transition-all duration-300" style="width: 20%;"></div>
       </div>
     </div>
 
     <!-- ========================================================================= -->
-    <!-- PART 1: PERSONAL INFORMATION (part1.html / View 1) -->
+    <!-- PART 1: PERSONAL INFORMATION (View 1) -->
     <!-- ========================================================================= -->
     <section id="view-part1" class="stage-view active">
       <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
@@ -165,10 +170,10 @@
           <p class="text-slate-400 text-sm mt-2 font-light">Registering the principal sovereign client under absolute medical bio-confidentiality.</p>
         </div>
 
-        <!-- Image 1 & Minimum 200-Word Narrative Block -->
+        <!-- Image 1 & Minimum 200-Word Narrative Block (Local assets/ folder) -->
         <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
-            <img src="imported/aegis_atoll_haven.jpg" alt="AEGIS Island Medical Sovereign Atoll" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <img src="assets/aegis_atoll_haven.jpg" alt="AEGIS Island Medical Sovereign Atoll" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
             <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
               FACILITY LOCALE: PERIMETER VECTOR ALPHA · SUB-TROPICAL MARITIME TERRITORY
@@ -228,7 +233,7 @@
     </section>
 
     <!-- ========================================================================= -->
-    <!-- PART 2: CRITERIA & DYNAMIC CO-GUEST ARRAY INJECTION (part2.html / View 2) -->
+    <!-- PART 2: CRITERIA & DYNAMIC CO-GUEST ARRAY INJECTION (View 2) -->
     <!-- ========================================================================= -->
     <section id="view-part2" class="stage-view">
       <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
@@ -244,10 +249,10 @@
           </button>
         </div>
 
-        <!-- Image 2 & Minimum 200-Word Narrative Block -->
+        <!-- Image 2 & Minimum 200-Word Narrative Block (Local assets/ folder) -->
         <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
-            <img src="imported/clinical_pavilion.jpg" alt="AEGIS Clinical Diagnostic Pavilion Alpha" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <img src="assets/clinical_pavilion.jpg" alt="AEGIS Clinical Diagnostic Pavilion Alpha" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
             <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
               CLINICAL WING: PAVILION ALPHA · RECEPTIVE TELEMETRY SUITE
@@ -333,7 +338,7 @@
     </section>
 
     <!-- ========================================================================= -->
-    <!-- PART 3: ROYAL PRIVILEGES CHECKLIST (part3.html / View 3) -->
+    <!-- PART 3: ROYAL PRIVILEGES CHECKLIST (View 3) -->
     <!-- ========================================================================= -->
     <section id="view-part3" class="stage-view">
       <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
@@ -355,10 +360,10 @@
           <span class="tracking-wide">All registered guests are eligible to equally enjoy all the privileges checked in this service list.</span>
         </div>
 
-        <!-- Image 3 & Minimum 200-Word Narrative Block -->
+        <!-- Image 3 & Minimum 200-Word Narrative Block (Local assets/ folder) -->
         <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
-            <img src="imported/hydro_chamber.jpg" alt="AEGIS Hydrothermal Cleansing Chamber" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <img src="assets/hydro_chamber.jpg" alt="AEGIS Hydrothermal Cleansing Chamber" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
             <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
               THERAPEUTIC HYDRO-SUITE · VOLCANIC THERMAL CONDUIT
@@ -462,7 +467,7 @@
     </section>
 
     <!-- ========================================================================= -->
-    <!-- PART 4: DOM-MANIPULATED SOVEREIGN CONSENT WIZARD (part4.html / View 4) -->
+    <!-- PART 4: DOM-MANIPULATED SOVEREIGN CONSENT WIZARD (View 4) -->
     <!-- ========================================================================= -->
     <section id="view-part4" class="stage-view">
       <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
@@ -472,14 +477,14 @@
           <p class="text-slate-400 text-sm mt-2 font-light">Meticulously evaluated sequential single-question clinical protocol examination.</p>
         </div>
 
-        <!-- Overhead Animated Progress Bar for Part 4 (Tracks 0% to 100% in real time via GSAP) -->
+        <!-- Overhead Animated Progress Bar for Part 4 (Tracks 0% to 100% in real time) -->
         <div class="mb-8 p-4 bg-[#07090e] border border-white/10 rounded-sm">
           <div class="flex items-center justify-between text-xs font-mono uppercase mb-2">
             <span id="wizard-progress-title" class="text-[#d4af37] tracking-wider font-semibold">QUESTION QUEUE PROGRESS</span>
             <span id="wizard-step-counter" class="text-slate-300">QUESTION 1 / 20</span>
           </div>
           <div class="w-full bg-[#141a24] h-2 rounded-full overflow-hidden border border-white/5 relative">
-            <div id="wizard-progress-bar" class="bg-gradient-to-r from-[#d4af37] to-[#e6c354] h-full" style="width: 5%;"></div>
+            <div id="wizard-progress-bar" class="bg-gradient-to-r from-[#d4af37] to-[#e6c354] h-full transition-all duration-300" style="width: 5%;"></div>
           </div>
         </div>
 
@@ -548,10 +553,10 @@
           </button>
         </div>
 
-        <!-- Image 4 & Minimum 200-Word Narrative Block (Inside Part 4) -->
+        <!-- Image 4 & Minimum 200-Word Narrative Block (Local assets/ folder) -->
         <div class="mt-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
-            <img src="imported/sovereign_suite.jpg" alt="AEGIS Presidential Medical Suite" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <img src="assets/sovereign_suite.jpg" alt="AEGIS Presidential Medical Suite" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
             <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
               RESIDENTIAL HAVEN: PRESIDENTIAL BIOMETRIC SUITE 01
@@ -572,7 +577,7 @@
     </section>
 
     <!-- ========================================================================= -->
-    <!-- PART 5: BOOKING SUMMARY & DYNAMIC PRICE COMPILATION (part5.html / View 5) -->
+    <!-- PART 5: BOOKING SUMMARY & DYNAMIC PRICE COMPILATION (View 5) -->
     <!-- ========================================================================= -->
     <section id="view-part5" class="stage-view">
       <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
@@ -712,7 +717,7 @@
     </section>
 
     <!-- ========================================================================= -->
-    <!-- THE CONFIRMATION VIEW (confirmation.html / Final View) -->
+    <!-- THE CONFIRMATION VIEW (Final View) -->
     <!-- ========================================================================= -->
     <section id="view-confirmation" class="stage-view">
       <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
@@ -797,10 +802,10 @@
           </div>
         </div>
 
-        <!-- Integrated Photographic Asset & Narrative Block -->
+        <!-- Integrated Photographic Asset & Narrative Block (Local assets/ folder) -->
         <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
-            <img src="imported/aegis_atoll_haven.jpg" alt="AEGIS Island Sanctuary" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <img src="assets/aegis_atoll_haven.jpg" alt="AEGIS Island Sanctuary" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
             <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
               FINAL VERIFICATION: SOVEREIGN ISLAND AIRLOCK CLEARED
@@ -843,7 +848,7 @@
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- CORE JAVASCRIPT STATE ENGINE (STRICT ES6+ NATIVE WEB CORE WITH GSAP) -->
+  <!-- EMBEDDED JAVASCRIPT STATE ENGINE (STRICT ES6+ NATIVE WEB CORE) -->
   <!-- ========================================================================= -->
   <script>
     /**
@@ -1029,72 +1034,76 @@
      * Switch visible stage view smoothly with GSAP micro-animations
      */
     function navigateToStage(stageId) {
-      const activeCurrent = document.querySelector('.stage-view.active');
-      const target = document.getElementById(stageId);
-      if (!target) return;
+      try {
+        const activeCurrent = document.querySelector('.stage-view.active');
+        const target = document.getElementById(stageId);
+        if (!target) return;
 
-      // Animate out current active view if GSAP exists
-      if (activeCurrent && activeCurrent !== target && typeof gsap !== 'undefined') {
-        gsap.to(activeCurrent, {
-          opacity: 0,
-          y: -10,
-          duration: 0.25,
-          ease: 'power2.in',
-          onComplete: () => {
-            activeCurrent.classList.remove('active');
-            target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Animate out current active view if GSAP exists
+        if (activeCurrent && activeCurrent !== target && window.gsap) {
+          window.gsap.to(activeCurrent, {
+            opacity: 0,
+            y: -10,
+            duration: 0.2,
+            ease: 'power2.in',
+            onComplete: () => {
+              activeCurrent.classList.remove('active');
+              target.classList.add('active');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            gsap.fromTo(target, 
-              { opacity: 0, y: 15 },
-              { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
-            );
-          }
-        });
-      } else {
-        document.querySelectorAll('.stage-view').forEach(v => v.classList.remove('active'));
-        target.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (typeof gsap !== 'undefined') {
-          gsap.fromTo(target, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
-        }
-      }
-
-      // Zero-Navbar Security Protocol:
-      // Global navbar is strictly OMITTED on Parts 1-5, and ONLY active on Confirmation View!
-      if (stageId === 'view-confirmation') {
-        globalNavbar.classList.remove('hidden');
-        stageIndicator.classList.add('hidden');
-        if (typeof gsap !== 'undefined') {
-          gsap.fromTo(globalNavbar, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
-        }
-      } else {
-        globalNavbar.classList.add('hidden');
-        stageIndicator.classList.remove('hidden');
-      }
-
-      // Update stage progress header with GSAP tween
-      if (views[stageId]) {
-        stageBadgeLabel.innerText = views[stageId].title;
-        stageRatioLabel.innerText = views[stageId].progress + ' COMPLETED';
-        if (typeof gsap !== 'undefined') {
-          gsap.to(stageMasterProgress, {
-            width: views[stageId].progress,
-            duration: 0.5,
-            ease: 'power2.out'
+              window.gsap.fromTo(target, 
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }
+              );
+            }
           });
         } else {
-          stageMasterProgress.style.width = views[stageId].progress;
+          document.querySelectorAll('.stage-view').forEach(v => v.classList.remove('active'));
+          target.classList.add('active');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (window.gsap) {
+            window.gsap.fromTo(target, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+          }
         }
-      }
 
-      // Trigger view-specific hydrations
-      if (stageId === 'view-part4') {
-        renderWizardQuestion();
-      } else if (stageId === 'view-part5') {
-        renderPart5SummaryAndCalculation();
-      } else if (stageId === 'view-confirmation') {
-        renderConfirmationReceipt();
+        // Zero-Navbar Security Protocol:
+        // Global navbar is strictly OMITTED on Parts 1-5, and ONLY active on Confirmation View!
+        if (stageId === 'view-confirmation') {
+          globalNavbar.classList.remove('hidden');
+          stageIndicator.classList.add('hidden');
+          if (window.gsap) {
+            window.gsap.fromTo(globalNavbar, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+          }
+        } else {
+          globalNavbar.classList.add('hidden');
+          stageIndicator.classList.remove('hidden');
+        }
+
+        // Update stage progress header with GSAP tween
+        if (views[stageId]) {
+          stageBadgeLabel.innerText = views[stageId].title;
+          stageRatioLabel.innerText = views[stageId].progress + ' COMPLETED';
+          if (window.gsap) {
+            window.gsap.to(stageMasterProgress, {
+              width: views[stageId].progress,
+              duration: 0.4,
+              ease: 'power2.out'
+            });
+          } else {
+            stageMasterProgress.style.width = views[stageId].progress;
+          }
+        }
+
+        // Trigger view-specific hydrations
+        if (stageId === 'view-part4') {
+          renderWizardQuestion();
+        } else if (stageId === 'view-part5') {
+          renderPart5SummaryAndCalculation();
+        } else if (stageId === 'view-confirmation') {
+          renderConfirmationReceipt();
+        }
+      } catch (err) {
+        console.error("Navigation error:", err);
       }
     }
 
@@ -1221,10 +1230,10 @@
       }
 
       // GSAP entrance animation for injected sub-forms
-      if (typeof gsap !== 'undefined') {
-        gsap.fromTo('.co-guest-subform',
+      if (window.gsap) {
+        window.gsap.fromTo('.co-guest-subform',
           { opacity: 0, y: 12 },
-          { opacity: 1, y: 0, duration: 0.35, stagger: 0.1, ease: 'power2.out' }
+          { opacity: 1, y: 0, duration: 0.3, stagger: 0.08, ease: 'power2.out' }
         );
       }
     }
@@ -1357,8 +1366,8 @@
 
       if (!activeQ) {
         // All 20 questions completed successfully!
-        if (typeof gsap !== 'undefined') {
-          gsap.to(wizardProgressBar, { width: '100%', duration: 0.35 });
+        if (window.gsap) {
+          window.gsap.to(wizardProgressBar, { width: '100%', duration: 0.3 });
         } else {
           wizardProgressBar.style.width = '100%';
         }
@@ -1371,8 +1380,8 @@
       const progressPercent = Math.round(((currentWizardIndex) / totalQuestions) * 100);
       const targetWidth = `${Math.max(5, progressPercent)}%`;
 
-      if (typeof gsap !== 'undefined') {
-        gsap.to(wizardProgressBar, { width: targetWidth, duration: 0.35, ease: 'power2.out' });
+      if (window.gsap) {
+        window.gsap.to(wizardProgressBar, { width: targetWidth, duration: 0.3, ease: 'power2.out' });
       } else {
         wizardProgressBar.style.width = targetWidth;
       }
@@ -1386,10 +1395,10 @@
       qText.innerText = activeQ.text;
       qSubtext.innerText = activeQ.subtext;
 
-      if (typeof gsap !== 'undefined') {
-        gsap.fromTo(activeQuestionCard,
-          { opacity: 0.6, y: 8 },
-          { opacity: 1, y: 0, duration: 0.25, ease: 'power2.out' }
+      if (window.gsap) {
+        window.gsap.fromTo(activeQuestionCard,
+          { opacity: 0.7, y: 6 },
+          { opacity: 1, y: 0, duration: 0.2, ease: 'power2.out' }
         );
       }
     }
@@ -1406,15 +1415,15 @@
         // Compliant answer! Advance queue
         currentWizardIndex++;
         if (currentWizardIndex >= QUESTION_BANK.length) {
-          if (typeof gsap !== 'undefined') {
-            gsap.to(wizardProgressBar, { width: '100%', duration: 0.3 });
+          if (window.gsap) {
+            window.gsap.to(wizardProgressBar, { width: '100%', duration: 0.3 });
           } else {
             wizardProgressBar.style.width = '100%';
           }
           wizardStepCounter.innerText = '20 / 20 COMPLETED';
           setTimeout(() => {
             navigateToStage('view-part5');
-          }, 350);
+          }, 300);
         } else {
           renderWizardQuestion();
         }
@@ -1425,10 +1434,10 @@
         wizardQueueContainer.classList.add('hidden');
         wizardConfirmModal.classList.remove('hidden');
 
-        if (typeof gsap !== 'undefined') {
-          gsap.fromTo(wizardConfirmModal,
-            { scale: 0.95, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(1.2)' }
+        if (window.gsap) {
+          window.gsap.fromTo(wizardConfirmModal,
+            { scale: 0.96, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.25, ease: 'back.out(1.2)' }
           );
         }
       }
@@ -1441,8 +1450,8 @@
       pendingNonCompliantAnswer = null;
       wizardConfirmModal.classList.add('hidden');
       wizardQueueContainer.classList.remove('hidden');
-      if (typeof gsap !== 'undefined') {
-        gsap.fromTo(wizardQueueContainer, { opacity: 0 }, { opacity: 1, duration: 0.25 });
+      if (window.gsap) {
+        window.gsap.fromTo(wizardQueueContainer, { opacity: 0 }, { opacity: 1, duration: 0.2 });
       }
     }
 
@@ -1456,11 +1465,11 @@
       wizardRejectionScreen.classList.remove('hidden');
 
       // Shift overhead progress bar to visual locked/error state
-      if (typeof gsap !== 'undefined') {
-        gsap.to(wizardProgressBar, { width: '100%', duration: 0.3 });
-        gsap.fromTo(wizardRejectionScreen,
+      if (window.gsap) {
+        window.gsap.to(wizardProgressBar, { width: '100%', duration: 0.3 });
+        window.gsap.fromTo(wizardRejectionScreen,
           { scale: 0.96, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' }
+          { scale: 1, opacity: 1, duration: 0.35, ease: 'power3.out' }
         );
       } else {
         wizardProgressBar.style.width = '100%';
@@ -1671,9 +1680,9 @@
       document.getElementById('conf-guests-count').innerText = `${docket.totalGuests || 1} Registered Guests`;
       document.getElementById('conf-total').innerText = formatCurrency(docket.finalTotal || 49000);
 
-      if (typeof gsap !== 'undefined') {
-        gsap.fromTo('#conf-seal-banner', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.2)' });
-        gsap.fromTo('#conf-receipt-panel', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, delay: 0.15, ease: 'power2.out' });
+      if (window.gsap) {
+        window.gsap.fromTo('#conf-seal-banner', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'back.out(1.2)' });
+        window.gsap.fromTo('#conf-receipt-panel', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, delay: 0.1, ease: 'power2.out' });
       }
     }
 
@@ -1698,18 +1707,22 @@
     }
 
     // --- On Initial Load ---
-    window.addEventListener('DOMContentLoaded', () => {
-      // Initialize subform state
+    function initializeApp() {
       renderCoGuestSubforms();
 
-      // Check if hash exists in URL (e.g. #part2, #part3)
       const hash = window.location.hash.replace('#', '');
       if (hash && views['view-' + hash]) {
         navigateToStage('view-' + hash);
       } else {
         navigateToStage('view-part1');
       }
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initializeApp);
+    } else {
+      initializeApp();
+    }
 
     // Handle hash navigation
     window.addEventListener('hashchange', () => {
