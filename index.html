@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS via Single Standard CDN Link -->
+  <!-- External CDN 1: Utility-first Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -45,6 +45,9 @@
     }
   </script>
 
+  <!-- External CDN 2: GSAP (GreenSock) for high-end micro-animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
   <style>
     body {
       background-color: #05070a;
@@ -58,11 +61,9 @@
     .font-cinzel {
       font-family: 'Cinzel', serif;
     }
-    /* Subtle radial sovereign background glow */
     .sovereign-bg {
       background: radial-gradient(circle at 50% 0%, #151b29 0%, #080a0f 65%, #05070a 100%);
     }
-    /* Custom luxury gold hairline borders */
     .gold-border {
       border: 1px solid rgba(212, 175, 55, 0.22);
     }
@@ -71,17 +72,14 @@
       outline: none;
       box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.4);
     }
-    /* Smooth transitions between stages */
     .stage-view {
       display: none;
       opacity: 0;
-      transition: opacity 0.35s ease-in-out;
     }
     .stage-view.active {
       display: block;
       opacity: 1;
     }
-    /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -129,7 +127,7 @@
       </div>
       <div class="flex items-center space-x-4">
         <span class="hidden sm:inline-block text-xs text-slate-400 font-mono tracking-wider">PROTOCOL: 2026-SOV-CONFIRMED</span>
-        <button onclick="window.print()" class="no-print px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-[#d4af37] border border-[#d4af37]/40 hover:bg-[#d4af37]/10 transition-colors rounded-sm flex items-center gap-1.5">
+        <button onclick="window.print()" class="no-print px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-[#d4af37] border border-[#d4af37]/40 hover:bg-[#d4af37]/10 transition-colors rounded-sm flex items-center gap-1.5 cursor-pointer">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
           Print Docket
         </button>
@@ -152,7 +150,7 @@
         <span id="stage-ratio-label" class="text-slate-400 font-mono">20% COMPLETED</span>
       </div>
       <div class="w-full bg-[#141a24] h-1 rounded-full overflow-hidden border border-white/5">
-        <div id="stage-master-progress" class="bg-gradient-to-r from-[#d4af37] via-[#f1d77a] to-[#d4af37] h-full transition-all duration-500" style="width: 20%;"></div>
+        <div id="stage-master-progress" class="bg-gradient-to-r from-[#d4af37] via-[#f1d77a] to-[#d4af37] h-full" style="width: 20%;"></div>
       </div>
     </div>
 
@@ -168,7 +166,7 @@
         </div>
 
         <!-- Image 1 & Minimum 200-Word Narrative Block -->
-        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
             <img src="imported/aegis_atoll_haven.jpg" alt="AEGIS Island Medical Sovereign Atoll" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
@@ -220,7 +218,7 @@
           </div>
 
           <div class="pt-6 border-t border-white/10 flex justify-end">
-            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2">
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2 cursor-pointer">
               <span>Next: Criteria & Guest Allocations</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </button>
@@ -240,14 +238,14 @@
             <h1 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide text-white">Tier Criteria & Guest Manifest</h1>
             <p class="text-slate-400 text-sm mt-2 font-light">Specify head count, suite category, physician appointments, and co-guest credentials.</p>
           </div>
-          <button type="button" onclick="navigateToStage('view-part1')" class="text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+          <button type="button" onclick="navigateToStage('view-part1')" class="text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             Return to Part 1
           </button>
         </div>
 
         <!-- Image 2 & Minimum 200-Word Narrative Block -->
-        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
             <img src="imported/clinical_pavilion.jpg" alt="AEGIS Clinical Diagnostic Pavilion Alpha" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
@@ -325,7 +323,7 @@
           </div>
 
           <div class="pt-6 border-t border-white/10 flex justify-end">
-            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2">
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2 cursor-pointer">
               <span>Next: Royal Privileges Checklist</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </button>
@@ -345,7 +343,7 @@
             <h1 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide text-white">Royal Privileges & Amenities</h1>
             <p class="text-slate-400 text-sm mt-2 font-light">Select supplemental therapeutic regimens and sovereign resort privileges.</p>
           </div>
-          <button type="button" onclick="navigateToStage('view-part2')" class="text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+          <button type="button" onclick="navigateToStage('view-part2')" class="text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             Return to Part 2
           </button>
@@ -358,7 +356,7 @@
         </div>
 
         <!-- Image 3 & Minimum 200-Word Narrative Block -->
-        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
             <img src="imported/hydro_chamber.jpg" alt="AEGIS Hydrothermal Cleansing Chamber" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
@@ -380,7 +378,6 @@
         <!-- Checklist Grid -->
         <form id="form-part3" class="space-y-6" onsubmit="event.preventDefault(); submitPart3();">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="privileges-checklist-grid">
-            <!-- Dynamically populated or rendered static items with click handlers -->
             <label class="flex items-start p-4 bg-[#121620] border border-white/10 rounded-sm hover:border-[#d4af37]/50 cursor-pointer transition-colors group">
               <input type="checkbox" name="privilege" value="Hyperbaric Cellular Regeneration Chamber ($4,500)" checked class="mt-1 h-4 w-4 rounded-none accent-[#d4af37] text-black bg-[#1e2636] border-white/20" />
               <div class="ml-3">
@@ -455,7 +452,7 @@
           </div>
 
           <div class="pt-6 border-t border-white/10 flex justify-end">
-            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2">
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2 cursor-pointer">
               <span>Next: Sovereign Consent Wizard</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </button>
@@ -475,14 +472,14 @@
           <p class="text-slate-400 text-sm mt-2 font-light">Meticulously evaluated sequential single-question clinical protocol examination.</p>
         </div>
 
-        <!-- Overhead Animated Progress Bar for Part 4 (Tracks 0% to 100% in real time) -->
+        <!-- Overhead Animated Progress Bar for Part 4 (Tracks 0% to 100% in real time via GSAP) -->
         <div class="mb-8 p-4 bg-[#07090e] border border-white/10 rounded-sm">
           <div class="flex items-center justify-between text-xs font-mono uppercase mb-2">
             <span id="wizard-progress-title" class="text-[#d4af37] tracking-wider font-semibold">QUESTION QUEUE PROGRESS</span>
             <span id="wizard-step-counter" class="text-slate-300">QUESTION 1 / 20</span>
           </div>
           <div class="w-full bg-[#141a24] h-2 rounded-full overflow-hidden border border-white/5 relative">
-            <div id="wizard-progress-bar" class="bg-gradient-to-r from-[#d4af37] to-[#e6c354] h-full transition-all duration-400" style="width: 5%;"></div>
+            <div id="wizard-progress-bar" class="bg-gradient-to-r from-[#d4af37] to-[#e6c354] h-full" style="width: 5%;"></div>
           </div>
         </div>
 
@@ -498,10 +495,10 @@
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10">
-              <button type="button" id="btn-ans-yes" onclick="handleWizardAnswer('YES')" class="w-full py-3.5 px-6 bg-[#1a202c] hover:bg-[#252f40] border border-white/20 hover:border-[#d4af37] text-white font-cinzel font-bold text-xs uppercase tracking-widest rounded-sm transition-all flex items-center justify-center gap-2">
+              <button type="button" id="btn-ans-yes" onclick="handleWizardAnswer('YES')" class="w-full py-3.5 px-6 bg-[#1a202c] hover:bg-[#252f40] border border-white/20 hover:border-[#d4af37] text-white font-cinzel font-bold text-xs uppercase tracking-widest rounded-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span>YES · I AFFIRM / AGREE</span>
               </button>
-              <button type="button" id="btn-ans-no" onclick="handleWizardAnswer('NO')" class="w-full py-3.5 px-6 bg-[#1a202c] hover:bg-[#252f40] border border-white/20 hover:border-[#d4af37] text-white font-cinzel font-bold text-xs uppercase tracking-widest rounded-sm transition-all flex items-center justify-center gap-2">
+              <button type="button" id="btn-ans-no" onclick="handleWizardAnswer('NO')" class="w-full py-3.5 px-6 bg-[#1a202c] hover:bg-[#252f40] border border-white/20 hover:border-[#d4af37] text-white font-cinzel font-bold text-xs uppercase tracking-widest rounded-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span>NO · I OBJECT / DECLINE</span>
               </button>
             </div>
@@ -518,10 +515,10 @@
             The response you selected deviates from the mandatory extraterritorial biosecurity protocols of AEGIS Island Medical. Confirming this response will immediately invalidate your reservation clearance.
           </p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button type="button" onclick="cancelNonCompliantChoice()" class="w-full sm:w-auto px-6 py-2.5 bg-[#1e2636] hover:bg-[#2d394d] text-white text-xs font-mono uppercase tracking-wider rounded-sm transition-colors">
+            <button type="button" onclick="cancelNonCompliantChoice()" class="w-full sm:w-auto px-6 py-2.5 bg-[#1e2636] hover:bg-[#2d394d] text-white text-xs font-mono uppercase tracking-wider rounded-sm transition-colors cursor-pointer">
               Reconsider & Return to Question
             </button>
-            <button type="button" onclick="confirmNonCompliantRejection()" class="w-full sm:w-auto px-6 py-2.5 bg-red-950 hover:bg-red-900 border border-red-600/50 text-red-200 text-xs font-mono uppercase tracking-wider rounded-sm transition-colors">
+            <button type="button" onclick="confirmNonCompliantRejection()" class="w-full sm:w-auto px-6 py-2.5 bg-red-950 hover:bg-red-900 border border-red-600/50 text-red-200 text-xs font-mono uppercase tracking-wider rounded-sm transition-colors cursor-pointer">
               Confirm Non-Compliant Choice
             </button>
           </div>
@@ -546,13 +543,13 @@
             All previously stored demographic data and service allocations remain protected in your local profile. You may restart the compliance questionnaire from Question 1.
           </p>
           <!-- Single Prominent "Try Again" Button as Required -->
-          <button type="button" onclick="restartConsentWizard()" class="px-10 py-4 bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-cinzel font-bold text-xs uppercase tracking-[0.25em] rounded-sm transition-all shadow-xl shadow-red-950">
+          <button type="button" onclick="restartConsentWizard()" class="px-10 py-4 bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-cinzel font-bold text-xs uppercase tracking-[0.25em] rounded-sm transition-all shadow-xl shadow-red-950 cursor-pointer">
             Try Again
           </button>
         </div>
 
         <!-- Image 4 & Minimum 200-Word Narrative Block (Inside Part 4) -->
-        <div class="mt-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+        <div class="mt-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
             <img src="imported/sovereign_suite.jpg" alt="AEGIS Presidential Medical Suite" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
@@ -701,12 +698,12 @@
 
         <!-- Checkout Action Button -->
         <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <button type="button" onclick="navigateToStage('view-part3')" class="w-full sm:w-auto text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors">
+          <button type="button" onclick="navigateToStage('view-part3')" class="w-full sm:w-auto text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             Review Amenities
           </button>
           <!-- Definitive Finalize Action Button as Specified -->
-          <button type="button" onclick="finalizeReservation()" class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#d4af37] via-[#f3dc8a] to-[#d4af37] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-extrabold text-xs sm:text-sm uppercase tracking-[0.25em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-xl shadow-[#d4af37]/25 flex items-center justify-center gap-2">
+          <button type="button" onclick="finalizeReservation()" class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#d4af37] via-[#f3dc8a] to-[#d4af37] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-extrabold text-xs sm:text-sm uppercase tracking-[0.25em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-xl shadow-[#d4af37]/25 flex items-center justify-center gap-2 cursor-pointer">
             <span>Confirm & Finalize Sovereign Reservation</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
           </button>
@@ -721,7 +718,7 @@
       <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
 
         <!-- Sovereign Clearance Banner -->
-        <div class="text-center pb-8 border-b border-white/10 mb-8">
+        <div class="text-center pb-8 border-b border-white/10 mb-8" id="conf-seal-banner">
           <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/40 flex items-center justify-center shadow-lg shadow-[#d4af37]/10">
             <svg class="w-8 h-8 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           </div>
@@ -733,7 +730,7 @@
         </div>
 
         <!-- High-End Luxury Receipt Panel -->
-        <div class="bg-[#07090e] border border-[#d4af37]/30 rounded-sm p-6 sm:p-8 mb-10 relative overflow-hidden">
+        <div class="bg-[#07090e] border border-[#d4af37]/30 rounded-sm p-6 sm:p-8 mb-10 relative overflow-hidden" id="conf-receipt-panel">
           <div class="absolute top-0 right-0 p-4 opacity-10">
             <span class="font-cinzel text-7xl font-black text-white">Æ</span>
           </div>
@@ -801,7 +798,7 @@
         </div>
 
         <!-- Integrated Photographic Asset & Narrative Block -->
-        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden image-narrative-container">
           <div class="relative aspect-video w-full overflow-hidden bg-black">
             <img src="imported/aegis_atoll_haven.jpg" alt="AEGIS Island Sanctuary" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
@@ -822,11 +819,11 @@
 
         <!-- Action Bar -->
         <div class="no-print pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <button type="button" onclick="startNewReservation()" class="w-full sm:w-auto px-6 py-3 border border-white/20 hover:border-white text-slate-300 hover:text-white text-xs font-mono uppercase tracking-wider rounded-sm transition-colors">
+          <button type="button" onclick="startNewReservation()" class="w-full sm:w-auto px-6 py-3 border border-white/20 hover:border-white text-slate-300 hover:text-white text-xs font-mono uppercase tracking-wider rounded-sm transition-colors cursor-pointer">
             Register New Reservation
           </button>
           <div class="flex items-center gap-4 w-full sm:w-auto">
-            <button type="button" onclick="window.print()" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2">
+            <button type="button" onclick="window.print()" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2 cursor-pointer">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
               <span>Print Official Docket</span>
             </button>
@@ -839,20 +836,21 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- MANDATORY UNIVERSAL FOOTER (EXACT STRING AS SPECIFIED) -->
+  <!-- MANDATORY UNIVERSAL FOOTER (EXACT STRING AS SPECIFIED ACROSS ALL STATES) -->
   <!-- ========================================================================= -->
   <footer class="w-full py-6 mt-16 border-t border-white/10 bg-[#06070a]/95 text-center text-xs tracking-wider text-slate-400 no-print">
     <p>Copyright 2026 AEGIS Island Medical | Authorized By Rayaan Tasnim | Powered by IDAI Universe.</p>
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- CORE JAVASCRIPT STATE ENGINE (STRICT ES6+ VANILLA NATIVE) -->
+  <!-- CORE JAVASCRIPT STATE ENGINE (STRICT ES6+ NATIVE WEB CORE WITH GSAP) -->
   <!-- ========================================================================= -->
   <script>
     /**
-     * AEGIS Island Medical - Client-Side Native Web Core Engine
+     * AEGIS Island Medical - Refactored Client-Side Native Web Core Engine
      * Zero-dependency native JS, Local Storage persistence, dynamic DOM loops,
-     * exponential pricing algorithms, and sovereign lockdown state machine.
+     * exponential pricing algorithms, sovereign lockdown state machine,
+     * and GSAP micro-animations.
      */
 
     // --- State Keys ---
@@ -1017,7 +1015,7 @@
     const stageRatioLabel = document.getElementById('stage-ratio-label');
     const stageMasterProgress = document.getElementById('stage-master-progress');
 
-    // Stage views list
+    // Stage views mapping
     const views = {
       'view-part1': { title: 'STAGE I of V · PERSONAL INFORMATION', progress: '20%' },
       'view-part2': { title: 'STAGE II of V · CRITERIA & CO-GUEST MANIFEST', progress: '40%' },
@@ -1028,34 +1026,66 @@
     };
 
     /**
-     * Switch visible stage view smoothly
+     * Switch visible stage view smoothly with GSAP micro-animations
      */
     function navigateToStage(stageId) {
-      document.querySelectorAll('.stage-view').forEach(view => {
-        view.classList.remove('active');
-      });
-
+      const activeCurrent = document.querySelector('.stage-view.active');
       const target = document.getElementById(stageId);
-      if (target) {
+      if (!target) return;
+
+      // Animate out current active view if GSAP exists
+      if (activeCurrent && activeCurrent !== target && typeof gsap !== 'undefined') {
+        gsap.to(activeCurrent, {
+          opacity: 0,
+          y: -10,
+          duration: 0.25,
+          ease: 'power2.in',
+          onComplete: () => {
+            activeCurrent.classList.remove('active');
+            target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            gsap.fromTo(target, 
+              { opacity: 0, y: 15 },
+              { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
+            );
+          }
+        });
+      } else {
+        document.querySelectorAll('.stage-view').forEach(v => v.classList.remove('active'));
         target.classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(target, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+        }
       }
 
-      // Zero-Navbar Security Protocol enforcement:
+      // Zero-Navbar Security Protocol:
       // Global navbar is strictly OMITTED on Parts 1-5, and ONLY active on Confirmation View!
       if (stageId === 'view-confirmation') {
         globalNavbar.classList.remove('hidden');
         stageIndicator.classList.add('hidden');
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(globalNavbar, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
+        }
       } else {
         globalNavbar.classList.add('hidden');
         stageIndicator.classList.remove('hidden');
       }
 
-      // Update stage progress header
+      // Update stage progress header with GSAP tween
       if (views[stageId]) {
         stageBadgeLabel.innerText = views[stageId].title;
         stageRatioLabel.innerText = views[stageId].progress + ' COMPLETED';
-        stageMasterProgress.style.width = views[stageId].progress;
+        if (typeof gsap !== 'undefined') {
+          gsap.to(stageMasterProgress, {
+            width: views[stageId].progress,
+            duration: 0.5,
+            ease: 'power2.out'
+          });
+        } else {
+          stageMasterProgress.style.width = views[stageId].progress;
+        }
       }
 
       // Trigger view-specific hydrations
@@ -1134,7 +1164,7 @@
       for (let i = 1; i <= coGuestCount; i++) {
         const guestData = savedGuests[i - 1] || {};
         const card = document.createElement('div');
-        card.className = "p-6 bg-[#07090e] border border-white/10 rounded-sm relative";
+        card.className = "p-6 bg-[#07090e] border border-white/10 rounded-sm relative co-guest-subform";
         card.innerHTML = `
           <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
             <span class="font-cinzel text-sm text-[#d4af37] font-bold tracking-wider">
@@ -1188,6 +1218,14 @@
           </div>
         `;
         dynamicCoGuestsContainer.appendChild(card);
+      }
+
+      // GSAP entrance animation for injected sub-forms
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo('.co-guest-subform',
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.35, stagger: 0.1, ease: 'power2.out' }
+        );
       }
     }
 
@@ -1299,6 +1337,7 @@
     const wizardQueueContainer = document.getElementById('wizard-queue-container');
     const wizardConfirmModal = document.getElementById('wizard-confirm-modal');
     const wizardRejectionScreen = document.getElementById('wizard-rejection-screen');
+    const activeQuestionCard = document.getElementById('active-question-card');
 
     const qCategoryTag = document.getElementById('q-category-tag');
     const qText = document.getElementById('q-text');
@@ -1318,7 +1357,11 @@
 
       if (!activeQ) {
         // All 20 questions completed successfully!
-        wizardProgressBar.style.width = '100%';
+        if (typeof gsap !== 'undefined') {
+          gsap.to(wizardProgressBar, { width: '100%', duration: 0.35 });
+        } else {
+          wizardProgressBar.style.width = '100%';
+        }
         wizardStepCounter.innerText = '20 / 20 COMPLETED';
         navigateToStage('view-part5');
         return;
@@ -1326,15 +1369,29 @@
 
       // Update progress bar
       const progressPercent = Math.round(((currentWizardIndex) / totalQuestions) * 100);
-      wizardProgressBar.style.width = `${Math.max(5, progressPercent)}%`;
-      wizardProgressBar.className = "bg-gradient-to-r from-[#d4af37] to-[#e6c354] h-full transition-all duration-400";
+      const targetWidth = `${Math.max(5, progressPercent)}%`;
+
+      if (typeof gsap !== 'undefined') {
+        gsap.to(wizardProgressBar, { width: targetWidth, duration: 0.35, ease: 'power2.out' });
+      } else {
+        wizardProgressBar.style.width = targetWidth;
+      }
+
+      wizardProgressBar.className = "bg-gradient-to-r from-[#d4af37] to-[#e6c354] h-full";
       wizardStepCounter.innerText = `QUESTION ${currentWizardIndex + 1} / ${totalQuestions}`;
       wizardProgressTitle.innerText = "QUESTION QUEUE PROGRESS";
 
-      // Render content
+      // Render content with smooth micro-animation
       qCategoryTag.innerText = activeQ.category;
       qText.innerText = activeQ.text;
       qSubtext.innerText = activeQ.subtext;
+
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(activeQuestionCard,
+          { opacity: 0.6, y: 8 },
+          { opacity: 1, y: 0, duration: 0.25, ease: 'power2.out' }
+        );
+      }
     }
 
     /**
@@ -1349,12 +1406,15 @@
         // Compliant answer! Advance queue
         currentWizardIndex++;
         if (currentWizardIndex >= QUESTION_BANK.length) {
-          // Completed 20 of 20
-          wizardProgressBar.style.width = '100%';
+          if (typeof gsap !== 'undefined') {
+            gsap.to(wizardProgressBar, { width: '100%', duration: 0.3 });
+          } else {
+            wizardProgressBar.style.width = '100%';
+          }
           wizardStepCounter.innerText = '20 / 20 COMPLETED';
           setTimeout(() => {
             navigateToStage('view-part5');
-          }, 300);
+          }, 350);
         } else {
           renderWizardQuestion();
         }
@@ -1364,6 +1424,13 @@
         pendingNonCompliantAnswer = selectedAnswer;
         wizardQueueContainer.classList.add('hidden');
         wizardConfirmModal.classList.remove('hidden');
+
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(wizardConfirmModal,
+            { scale: 0.95, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(1.2)' }
+          );
+        }
       }
     }
 
@@ -1374,6 +1441,9 @@
       pendingNonCompliantAnswer = null;
       wizardConfirmModal.classList.add('hidden');
       wizardQueueContainer.classList.remove('hidden');
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(wizardQueueContainer, { opacity: 0 }, { opacity: 1, duration: 0.25 });
+      }
     }
 
     /**
@@ -1386,8 +1456,17 @@
       wizardRejectionScreen.classList.remove('hidden');
 
       // Shift overhead progress bar to visual locked/error state
-      wizardProgressBar.style.width = '100%';
-      wizardProgressBar.className = "bg-red-600 shadow-lg shadow-red-600/50 h-full transition-all duration-300";
+      if (typeof gsap !== 'undefined') {
+        gsap.to(wizardProgressBar, { width: '100%', duration: 0.3 });
+        gsap.fromTo(wizardRejectionScreen,
+          { scale: 0.96, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' }
+        );
+      } else {
+        wizardProgressBar.style.width = '100%';
+      }
+
+      wizardProgressBar.className = "bg-red-600 shadow-lg shadow-red-600/50 h-full";
       wizardProgressTitle.innerText = "PROTOCOL LOCKDOWN · NON-COMPLIANCE DETECTED";
       wizardProgressTitle.className = "text-red-500 tracking-wider font-semibold";
       wizardStepCounter.innerText = "ACCESS REJECTED";
@@ -1591,6 +1670,11 @@
       document.getElementById('conf-physician').innerText = docket.criteria?.physicianName || 'Senior Biometric Consultant';
       document.getElementById('conf-guests-count').innerText = `${docket.totalGuests || 1} Registered Guests`;
       document.getElementById('conf-total').innerText = formatCurrency(docket.finalTotal || 49000);
+
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo('#conf-seal-banner', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.2)' });
+        gsap.fromTo('#conf-receipt-panel', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, delay: 0.15, ease: 'power2.out' });
+      }
     }
 
     function startNewReservation() {
