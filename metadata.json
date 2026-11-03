@@ -1,0 +1,6 @@
+{
+  "name": "AEGIS Island Medical",
+  "description": "Sovereign ultra-luxury multi-stage registration funnel and clinical reservation confirmation portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

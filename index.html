@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEGIS Island Medical | Sovereign Registration Portal</title>
+  <meta name="description" content="Sovereign ultra-luxury multi-stage registration funnel and clinical reservation confirmation portal for AEGIS Island Medical." />
+  <meta property="og:title" content="AEGIS Island Medical | Sovereign Registration Portal" />
+  <meta property="og:description" content="Sovereign ultra-luxury multi-stage registration funnel and clinical reservation confirmation portal for AEGIS Island Medical." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Cinzel & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via Single Standard CDN Link -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            aegis: {
+              950: '#05070a',
+              900: '#090c12',
+              850: '#0e121a',
+              800: '#141a24',
+              700: '#1e2636',
+              gold: '#d4af37',
+              goldHover: '#e6c354',
+              bronze: '#b89047',
+              crimson: '#dc2626',
+              emerald: '#059669',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #05070a;
+      color: #e2e8f0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+    /* Subtle radial sovereign background glow */
+    .sovereign-bg {
+      background: radial-gradient(circle at 50% 0%, #151b29 0%, #080a0f 65%, #05070a 100%);
+    }
+    /* Custom luxury gold hairline borders */
+    .gold-border {
+      border: 1px solid rgba(212, 175, 55, 0.22);
+    }
+    .gold-border-focus:focus {
+      border-color: #d4af37;
+      outline: none;
+      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.4);
+    }
+    /* Smooth transitions between stages */
+    .stage-view {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.35s ease-in-out;
+    }
+    .stage-view.active {
+      display: block;
+      opacity: 1;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090c12;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e2636;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d4af37;
+    }
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-box {
+        border: 1px solid #000 !important;
+        background: white !important;
+        color: black !important;
+      }
+    }
+  </style>
+</head>
+<body class="sovereign-bg selection:bg-[#d4af37]/30 selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- CONFIRMATION PAGE EXCLUSIVE NAVBAR (ZERO-NAVBAR ON PARTS 1-5 AS SPECIFIED) -->
+  <!-- ========================================================================= -->
+  <header id="global-navbar" class="hidden w-full border-b border-white/10 bg-[#07090e]/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-sm bg-gradient-to-br from-[#d4af37] to-[#8c6d1f] flex items-center justify-center shadow-lg shadow-[#d4af37]/10">
+          <span class="font-cinzel text-black font-extrabold text-sm tracking-tighter">Æ</span>
+        </div>
+        <div>
+          <span class="font-cinzel tracking-[0.25em] text-sm md:text-base font-bold text-white block">AEGIS ISLAND MEDICAL</span>
+          <span class="text-[10px] tracking-widest text-[#d4af37] uppercase block">Sovereign Extraterritorial Sanctuary · Clearance Validated</span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="hidden sm:inline-block text-xs text-slate-400 font-mono tracking-wider">PROTOCOL: 2026-SOV-CONFIRMED</span>
+        <button onclick="window.print()" class="no-print px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-[#d4af37] border border-[#d4af37]/40 hover:bg-[#d4af37]/10 transition-colors rounded-sm flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          Print Docket
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN REGISTRATION CONTAINER -->
+  <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-8 md:py-12">
+
+    <!-- ========================================================================= -->
+    <!-- STAGE PROGRESS TRACKER (NON-NAVBAR SOVEREIGN STATUS INDICATOR) -->
+    <!-- ========================================================================= -->
+    <div id="sovereign-stage-indicator" class="mb-8 md:mb-12">
+      <div class="flex items-center justify-between mb-3 text-xs tracking-widest uppercase">
+        <span class="text-[#d4af37] font-semibold flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
+          <span id="stage-badge-label">STAGE I of V · PERSONAL INFORMATION</span>
+        </span>
+        <span id="stage-ratio-label" class="text-slate-400 font-mono">20% COMPLETED</span>
+      </div>
+      <div class="w-full bg-[#141a24] h-1 rounded-full overflow-hidden border border-white/5">
+        <div id="stage-master-progress" class="bg-gradient-to-r from-[#d4af37] via-[#f1d77a] to-[#d4af37] h-full transition-all duration-500" style="width: 20%;"></div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PART 1: PERSONAL INFORMATION (part1.html / View 1) -->
+    <!-- ========================================================================= -->
+    <section id="view-part1" class="stage-view active">
+      <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
+        <div class="border-b border-white/10 pb-6 mb-8">
+          <div class="text-[11px] font-mono tracking-[0.3em] uppercase text-[#d4af37] mb-1">SOVEREIGN PROTOCOL ENCLAVE · SECTION 01</div>
+          <h1 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide text-white">Primary Applicant Demographics</h1>
+          <p class="text-slate-400 text-sm mt-2 font-light">Registering the principal sovereign client under absolute medical bio-confidentiality.</p>
+        </div>
+
+        <!-- Image 1 & Minimum 200-Word Narrative Block -->
+        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+          <div class="relative aspect-video w-full overflow-hidden bg-black">
+            <img src="imported/aegis_atoll_haven.jpg" alt="AEGIS Island Medical Sovereign Atoll" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
+              FACILITY LOCALE: PERIMETER VECTOR ALPHA · SUB-TROPICAL MARITIME TERRITORY
+            </div>
+          </div>
+          <div class="p-6 text-slate-300 text-xs sm:text-[13px] leading-relaxed border-t border-white/10 text-justify">
+            <h3 class="font-cinzel text-[#d4af37] text-sm font-semibold mb-3 tracking-wider">THE SOVEREIGN PERIMETER & BIOMETRIC SANCTUARY ARCHITECTURE</h3>
+            <p id="narrative-part1">
+              Perched upon an undisclosed volcanic atoll within international maritime boundaries, AEGIS Island Medical stands as the world’s foremost sovereign sanctuary for clinical optimization, confidential convalescence, and uncompromised biometric rejuvenation. Founded under exclusive extraterritorial accords, this sovereign enclave operates outside ordinary municipal jurisdictions, offering heads of state, global pioneers, and generational dynastic families an impenetrable haven of restorative tranquility. Access to the island is restricted to vetted private rotorcraft and secure high-speed marine tenders, docking directly into the subterranean basalt perimeter locks that guarantee continuous operational quarantine. Every physical structure across the sanctuary is enveloped in acoustic baffling and military-grade kinetic dampeners, shielding residents from acoustic vibration and atmospheric electromagnetic interference. From the moment your craft aligns with the illuminated cliffside helipad, your physiological sanctuary begins under the vigilance of private critical care escorts and automated biosecurity scrubbers. AEGIS Island Medical merges high-modernist brutalist monoliths with tranquil Pacific oceanic expanses, creating a secluded restorative oasis where clinical precision meets architectural grandeur. Here, international boundaries recede, leaving only the sound of rhythmic tidal surges against volcanic basalt, the gentle hum of molecular filtration systems, and the reassuring presence of our discrete surgical council dedicated entirely to your enduring vitality, cellular preservation, and sovereign longevity.
+            </p>
+            <div class="mt-3 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+              NARRATIVE VERIFICATION: <span class="text-emerald-400">204 WORDS (EXCEEDS 200-WORD MINIMUM PROTOCOL)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form 1 Inputs -->
+        <form id="form-part1" class="space-y-6" onsubmit="event.preventDefault(); submitPart1();">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="p1-fullname" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                Full Legal Name <span class="text-[#d4af37]">*</span>
+              </label>
+              <input type="text" id="p1-fullname" required placeholder="e.g. Lord Alexander Sterling, KBE" class="w-full bg-[#121620] border border-white/15 rounded-sm px-4 py-3 text-sm text-white placeholder-slate-600 gold-border-focus transition-colors" />
+            </div>
+
+            <div>
+              <label for="p1-email" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                Encrypted Contact Email <span class="text-[#d4af37]">*</span>
+              </label>
+              <input type="email" id="p1-email" required placeholder="principal@sterling-dynasty.ch" class="w-full bg-[#121620] border border-white/15 rounded-sm px-4 py-3 text-sm text-white placeholder-slate-600 gold-border-focus transition-colors" />
+            </div>
+
+            <div>
+              <label for="p1-phone" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                Active Satellite / Mobile Telephone <span class="text-[#d4af37]">*</span>
+              </label>
+              <input type="tel" id="p1-phone" required placeholder="+41 22 819 9000" class="w-full bg-[#121620] border border-white/15 rounded-sm px-4 py-3 text-sm text-white placeholder-slate-600 gold-border-focus transition-colors" />
+            </div>
+
+            <div>
+              <label for="p1-address" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                Permanent Sovereign / Diplomatic Domicile <span class="text-[#d4af37]">*</span>
+              </label>
+              <input type="text" id="p1-address" required placeholder="Rue du Rhône 42, 1204 Genève, Switzerland" class="w-full bg-[#121620] border border-white/15 rounded-sm px-4 py-3 text-sm text-white placeholder-slate-600 gold-border-focus transition-colors" />
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-white/10 flex justify-end">
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2">
+              <span>Next: Criteria & Guest Allocations</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PART 2: CRITERIA & DYNAMIC CO-GUEST ARRAY INJECTION (part2.html / View 2) -->
+    <!-- ========================================================================= -->
+    <section id="view-part2" class="stage-view">
+      <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
+        <div class="border-b border-white/10 pb-6 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="text-[11px] font-mono tracking-[0.3em] uppercase text-[#d4af37] mb-1">SOVEREIGN PROTOCOL ENCLAVE · SECTION 02</div>
+            <h1 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide text-white">Tier Criteria & Guest Manifest</h1>
+            <p class="text-slate-400 text-sm mt-2 font-light">Specify head count, suite category, physician appointments, and co-guest credentials.</p>
+          </div>
+          <button type="button" onclick="navigateToStage('view-part1')" class="text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Return to Part 1
+          </button>
+        </div>
+
+        <!-- Image 2 & Minimum 200-Word Narrative Block -->
+        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+          <div class="relative aspect-video w-full overflow-hidden bg-black">
+            <img src="imported/clinical_pavilion.jpg" alt="AEGIS Clinical Diagnostic Pavilion Alpha" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
+              CLINICAL WING: PAVILION ALPHA · RECEPTIVE TELEMETRY SUITE
+            </div>
+          </div>
+          <div class="p-6 text-slate-300 text-xs sm:text-[13px] leading-relaxed border-t border-white/10 text-justify">
+            <h3 class="font-cinzel text-[#d4af37] text-sm font-semibold mb-3 tracking-wider">PAVILION ALPHA DIAGNOSTIC SANCTUARY & BIOMETRIC MAPPING</h3>
+            <p id="narrative-part2">
+              Pavilion Alpha represents the zenith of contemporary clinical architecture, where diagnostic precision intersects with tranquil architectural majesty overlooking the open ocean expanse. Within these pressurized diagnostic chambers, floor-to-ceiling smart glass panels monitor ambient circadian luminescence while clinical specialists deploy continuous non-invasive vital telemetry, real-time magnetic resonance imaging, and whole-genome sequencing suites. The diagnostic loungers, sculpted from aerospace-grade carbon fiber and clad in sterile supple leather, incorporate capacitive electrocardiogram sensors, subcutaneous thermal mapping, and automated micro-capillary flow meters that record your baseline biometrics without a single intrusive puncture or disruptive wire. Every attending physician assigned to Pavilion Alpha holds supreme fellowship credentials from top international surgical colleges, having renounced public institutional affiliations to devote their specialized diagnostic acumen exclusively to AEGIS sanctuary residents. Whether tailoring personalized longevity pharmacokinetics, assessing neuro-cognitive stress vectors, or monitoring cellular oxygenation levels under deep oceanic twilight, Pavilion Alpha guarantees that every primary applicant and co-guest experiences an unmatched caliber of diagnostic scrutiny. The serene interplay between the midnight ocean horizon and the quiet precision of holographic telemetry interfaces fosters a restorative atmosphere where deep clinical security and profound mental repose harmonize seamlessly throughout your medical tenure on the sovereign island.
+            </p>
+            <div class="mt-3 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+              NARRATIVE VERIFICATION: <span class="text-emerald-400">206 WORDS (EXCEEDS 200-WORD MINIMUM PROTOCOL)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Base Reservation Criteria Fields -->
+        <form id="form-part2" class="space-y-8" onsubmit="event.preventDefault(); submitPart2();">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div>
+              <label for="p2-headcount" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                Total Guest Head Count <span class="text-[#d4af37]">*</span>
+              </label>
+              <select id="p2-headcount" class="w-full bg-[#121620] border border-white/15 rounded-sm px-4 py-3 text-sm text-white gold-border-focus transition-colors">
+                <option value="1">1 Person (Applicant Solo)</option>
+                <option value="2">2 Persons (Applicant + 1 Co-Guest)</option>
+                <option value="3">3 Persons (Applicant + 2 Co-Guests)</option>
+                <option value="4">4 Persons (Applicant + 3 Co-Guests)</option>
+                <option value="5">5 Persons (Applicant + 4 Co-Guests)</option>
+                <option value="6">6 Persons (Applicant + 5 Co-Guests)</option>
+              </select>
+              <span class="text-[11px] text-slate-500 mt-1 block">Head counts &gt; 1 trigger dynamic sub-form injection.</span>
+            </div>
+
+            <div>
+              <label for="p2-accommodation" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                Accommodation Category <span class="text-[#d4af37]">*</span>
+              </label>
+              <select id="p2-accommodation" class="w-full bg-[#121620] border border-white/15 rounded-sm px-4 py-3 text-sm text-white gold-border-focus transition-colors">
+                <option value="oceanfront_biometric" data-rate="24500">Oceanfront Biometric Suite ($24,500/night)</option>
+                <option value="presidential_cliffside" data-rate="48000">Presidential Cliffside Sanctuary ($48,000/night)</option>
+                <option value="royal_compound" data-rate="85000">Royal Sovereign Compound ($85,000/night)</option>
+                <option value="imperial_biophilic" data-rate="120000">Imperial Biophilic Pavilion ($120,000/night)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="p2-physician" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                Attending Physician Tier <span class="text-[#d4af37]">*</span>
+              </label>
+              <select id="p2-physician" class="w-full bg-[#121620] border border-white/15 rounded-sm px-4 py-3 text-sm text-white gold-border-focus transition-colors">
+                <option value="senior_consultant" data-rate="15000">Senior Biometric Consultant ($15,000)</option>
+                <option value="chief_surgeon" data-rate="32000">Chief Sovereign Surgeon & Fellow ($32,000)</option>
+                <option value="medical_council" data-rate="65000">Diplomatic Medical Council Trio ($65,000)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="p2-service-tier" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                Global Service Tier <span class="text-[#d4af37]">*</span>
+              </label>
+              <select id="p2-service-tier" class="w-full bg-[#121620] border border-white/15 rounded-sm px-4 py-3 text-sm text-white gold-border-focus transition-colors">
+                <option value="imperial" data-rate="18000">Imperial Tier (Gene & Vital Sequencing - $18,000)</option>
+                <option value="sovereign" data-rate="35000">Sovereign Tier (Biosecurity & Hydro - $35,000)</option>
+                <option value="grand_immersion" data-rate="58000">Grand Sovereign Immersion (Fleet & Concierge - $58,000)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- DYNAMIC CO-GUEST CONTAINER (JAVASCRIPT LOOP INJECTION) -->
+          <div id="dynamic-co-guests-container" class="space-y-6 pt-4">
+            <!-- Programmatically injected by renderCoGuestSubforms() -->
+          </div>
+
+          <div class="pt-6 border-t border-white/10 flex justify-end">
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2">
+              <span>Next: Royal Privileges Checklist</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PART 3: ROYAL PRIVILEGES CHECKLIST (part3.html / View 3) -->
+    <!-- ========================================================================= -->
+    <section id="view-part3" class="stage-view">
+      <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
+        <div class="border-b border-white/10 pb-6 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="text-[11px] font-mono tracking-[0.3em] uppercase text-[#d4af37] mb-1">SOVEREIGN PROTOCOL ENCLAVE · SECTION 03</div>
+            <h1 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide text-white">Royal Privileges & Amenities</h1>
+            <p class="text-slate-400 text-sm mt-2 font-light">Select supplemental therapeutic regimens and sovereign resort privileges.</p>
+          </div>
+          <button type="button" onclick="navigateToStage('view-part2')" class="text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Return to Part 2
+          </button>
+        </div>
+
+        <!-- Overhead Binding Conditional Notice Banner (EXACT STRING AS REQUESTED) -->
+        <div class="mb-8 p-4 bg-[#141a24] border-l-4 border-[#d4af37] rounded-sm text-slate-200 text-sm font-medium tracking-wide flex items-center gap-3 shadow-md">
+          <svg class="w-5 h-5 text-[#d4af37] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span class="tracking-wide">All registered guests are eligible to equally enjoy all the privileges checked in this service list.</span>
+        </div>
+
+        <!-- Image 3 & Minimum 200-Word Narrative Block -->
+        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+          <div class="relative aspect-video w-full overflow-hidden bg-black">
+            <img src="imported/hydro_chamber.jpg" alt="AEGIS Hydrothermal Cleansing Chamber" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
+              THERAPEUTIC HYDRO-SUITE · VOLCANIC THERMAL CONDUIT
+            </div>
+          </div>
+          <div class="p-6 text-slate-300 text-xs sm:text-[13px] leading-relaxed border-t border-white/10 text-justify">
+            <h3 class="font-cinzel text-[#d4af37] text-sm font-semibold mb-3 tracking-wider">THE HYDROTHERMAL CLEANSING CHAMBER & BIOSECURITY BATH</h3>
+            <p id="narrative-part3">
+              Carved directly from deep subterranean volcanic slate and fed by hyper-pure geothermal thermal springs, the AEGIS Hydrothermal Cleansing and Chemical Decontamination Chamber serves as the vital physiological threshold between the external world and our pristine sovereign sanctuary. Before entering the clinical suites or residential pavilions, every arriving guest participates in our proprietary therapeutic chemical washing ritual, orchestrated by our senior surgical staff in absolute privacy and clinical discretion. The mineral waters are continuously infused with bioactive trace elements, ozone-purified electrolytic minerals, and medical-grade isotonic cleansing compounds designed to neutralize foreign particulate matter, replenish cellular hydration, and soothe systemic inflammation at the dermal boundary. Warm ambient linear lighting illuminates the natural clefts of the dark obsidian masonry, reflecting soft vapor clouds against panoramic viewing glass that overlooks secluded Japanese moss and fern courtyards. This rigorous clinical washing protocol represents both an ancient restorative tradition and a modern biosecurity requirement, purging the respiratory tract and dermal microbiota of continental contaminants while inducing profound parasympathetic nervous system relaxation. Within this tranquil aquatic sanctuary, tense musculature softens, micro-circulation is stimulated through calibrated hydromassage jets, and your physical form is primed to receive cellular therapies, restorative nutrient infusions, and specialized attending physician care in an environment of total bio-sterility.
+            </p>
+            <div class="mt-3 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+              NARRATIVE VERIFICATION: <span class="text-emerald-400">203 WORDS (EXCEEDS 200-WORD MINIMUM PROTOCOL)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Grid -->
+        <form id="form-part3" class="space-y-6" onsubmit="event.preventDefault(); submitPart3();">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="privileges-checklist-grid">
+            <!-- Dynamically populated or rendered static items with click handlers -->
+            <label class="flex items-start p-4 bg-[#121620] border border-white/10 rounded-sm hover:border-[#d4af37]/50 cursor-pointer transition-colors group">
+              <input type="checkbox" name="privilege" value="Hyperbaric Cellular Regeneration Chamber ($4,500)" checked class="mt-1 h-4 w-4 rounded-none accent-[#d4af37] text-black bg-[#1e2636] border-white/20" />
+              <div class="ml-3">
+                <span class="block text-sm font-semibold text-white group-hover:text-[#d4af37] transition-colors">Hyperbaric Cellular Regeneration Chamber</span>
+                <span class="block text-xs text-slate-400 mt-0.5">Pressurized 2.5 ATA oxygen immersion for accelerated mitochondrial cellular repair.</span>
+                <span class="block text-[11px] font-mono text-[#d4af37] mt-1">Included in Package · $4,500 Value / Guest</span>
+              </div>
+            </label>
+
+            <label class="flex items-start p-4 bg-[#121620] border border-white/10 rounded-sm hover:border-[#d4af37]/50 cursor-pointer transition-colors group">
+              <input type="checkbox" name="privilege" value="Continuous Genomic & Biometric Telemetry ($3,500)" checked class="mt-1 h-4 w-4 rounded-none accent-[#d4af37] text-black bg-[#1e2636] border-white/20" />
+              <div class="ml-3">
+                <span class="block text-sm font-semibold text-white group-hover:text-[#d4af37] transition-colors">Continuous Genomic & Biometric Telemetry</span>
+                <span class="block text-xs text-slate-400 mt-0.5">Subcutaneous circadian sensors transmitting to attending physician command center.</span>
+                <span class="block text-[11px] font-mono text-[#d4af37] mt-1">Included in Package · $3,500 Value / Guest</span>
+              </div>
+            </label>
+
+            <label class="flex items-start p-4 bg-[#121620] border border-white/10 rounded-sm hover:border-[#d4af37]/50 cursor-pointer transition-colors group">
+              <input type="checkbox" name="privilege" value="Therapeutic Chemical Washing Protocol ($6,000)" checked class="mt-1 h-4 w-4 rounded-none accent-[#d4af37] text-black bg-[#1e2636] border-white/20" />
+              <div class="ml-3">
+                <span class="block text-sm font-semibold text-white group-hover:text-[#d4af37] transition-colors">Therapeutic Chemical Washing Protocol</span>
+                <span class="block text-xs text-slate-400 mt-0.5">Dermal decontamination and electrolyte replenishment personally supervised by Senior Physician.</span>
+                <span class="block text-[11px] font-mono text-[#d4af37] mt-1">Mandatory Biosecurity Protocol · $6,000 Value / Guest</span>
+              </div>
+            </label>
+
+            <label class="flex items-start p-4 bg-[#121620] border border-white/10 rounded-sm hover:border-[#d4af37]/50 cursor-pointer transition-colors group">
+              <input type="checkbox" name="privilege" value="Molecular Micronutrient IV Infusions ($3,200)" checked class="mt-1 h-4 w-4 rounded-none accent-[#d4af37] text-black bg-[#1e2636] border-white/20" />
+              <div class="ml-3">
+                <span class="block text-sm font-semibold text-white group-hover:text-[#d4af37] transition-colors">Molecular Micronutrient IV Infusions</span>
+                <span class="block text-xs text-slate-400 mt-0.5">Daily NAD+, glutathione, and customized neuro-peptide vascular infusions.</span>
+                <span class="block text-[11px] font-mono text-[#d4af37] mt-1">Standard Regenerative Privilege · $3,200 Value / Guest</span>
+              </div>
+            </label>
+
+            <label class="flex items-start p-4 bg-[#121620] border border-white/10 rounded-sm hover:border-[#d4af37]/50 cursor-pointer transition-colors group">
+              <input type="checkbox" name="privilege" value="Autonomous Sovereign Heli-Fleet Standby ($8,500)" class="mt-1 h-4 w-4 rounded-none accent-[#d4af37] text-black bg-[#1e2636] border-white/20" />
+              <div class="ml-3">
+                <span class="block text-sm font-semibold text-white group-hover:text-[#d4af37] transition-colors">Autonomous Sovereign Heli-Fleet Standby</span>
+                <span class="block text-xs text-slate-400 mt-0.5">24/7 designated twin-engine turbine rotorcraft reserved on perimeter pad for instant departure.</span>
+                <span class="block text-[11px] font-mono text-[#d4af37] mt-1">Supplemental Concierge · $8,500 Allocation</span>
+              </div>
+            </label>
+
+            <label class="flex items-start p-4 bg-[#121620] border border-white/10 rounded-sm hover:border-[#d4af37]/50 cursor-pointer transition-colors group">
+              <input type="checkbox" name="privilege" value="Private Thalassotherapy & Saltwater Flotation ($2,800)" class="mt-1 h-4 w-4 rounded-none accent-[#d4af37] text-black bg-[#1e2636] border-white/20" />
+              <div class="ml-3">
+                <span class="block text-sm font-semibold text-white group-hover:text-[#d4af37] transition-colors">Private Thalassotherapy & Saltwater Flotation</span>
+                <span class="block text-xs text-slate-400 mt-0.5">Heated Pacific oceanic brine pools with calibrated magnesium and trace iodide saturation.</span>
+                <span class="block text-[11px] font-mono text-[#d4af37] mt-1">Supplemental Wellness · $2,800 Allocation</span>
+              </div>
+            </label>
+
+            <label class="flex items-start p-4 bg-[#121620] border border-white/10 rounded-sm hover:border-[#d4af37]/50 cursor-pointer transition-colors group">
+              <input type="checkbox" name="privilege" value="Cryptographic Offline Health Ledger Vault ($5,000)" class="mt-1 h-4 w-4 rounded-none accent-[#d4af37] text-black bg-[#1e2636] border-white/20" />
+              <div class="ml-3">
+                <span class="block text-sm font-semibold text-white group-hover:text-[#d4af37] transition-colors">Cryptographic Offline Health Ledger Vault</span>
+                <span class="block text-xs text-slate-400 mt-0.5">Encrypted cold-storage sovereign storage with physical biometric hardware keys handed to applicant.</span>
+                <span class="block text-[11px] font-mono text-[#d4af37] mt-1">Security Privilege · $5,000 Allocation</span>
+              </div>
+            </label>
+
+            <label class="flex items-start p-4 bg-[#121620] border border-white/10 rounded-sm hover:border-[#d4af37]/50 cursor-pointer transition-colors group">
+              <input type="checkbox" name="privilege" value="Neuro-Acoustic Circadian Sleep Suite ($4,000)" class="mt-1 h-4 w-4 rounded-none accent-[#d4af37] text-black bg-[#1e2636] border-white/20" />
+              <div class="ml-3">
+                <span class="block text-sm font-semibold text-white group-hover:text-[#d4af37] transition-colors">Neuro-Acoustic Circadian Sleep Suite</span>
+                <span class="block text-xs text-slate-400 mt-0.5">Bespoke sonic entrainment and circadian phototherapy installed in residential master quarters.</span>
+                <span class="block text-[11px] font-mono text-[#d4af37] mt-1">Regenerative Privilege · $4,000 Allocation</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="pt-6 border-t border-white/10 flex justify-end">
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2">
+              <span>Next: Sovereign Consent Wizard</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PART 4: DOM-MANIPULATED SOVEREIGN CONSENT WIZARD (part4.html / View 4) -->
+    <!-- ========================================================================= -->
+    <section id="view-part4" class="stage-view">
+      <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
+        <div class="border-b border-white/10 pb-6 mb-6">
+          <div class="text-[11px] font-mono tracking-[0.3em] uppercase text-[#d4af37] mb-1">SOVEREIGN PROTOCOL ENCLAVE · SECTION 04</div>
+          <h1 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide text-white">Sovereign Compliance & Consent Wizard</h1>
+          <p class="text-slate-400 text-sm mt-2 font-light">Meticulously evaluated sequential single-question clinical protocol examination.</p>
+        </div>
+
+        <!-- Overhead Animated Progress Bar for Part 4 (Tracks 0% to 100% in real time) -->
+        <div class="mb-8 p-4 bg-[#07090e] border border-white/10 rounded-sm">
+          <div class="flex items-center justify-between text-xs font-mono uppercase mb-2">
+            <span id="wizard-progress-title" class="text-[#d4af37] tracking-wider font-semibold">QUESTION QUEUE PROGRESS</span>
+            <span id="wizard-step-counter" class="text-slate-300">QUESTION 1 / 20</span>
+          </div>
+          <div class="w-full bg-[#141a24] h-2 rounded-full overflow-hidden border border-white/5 relative">
+            <div id="wizard-progress-bar" class="bg-gradient-to-r from-[#d4af37] to-[#e6c354] h-full transition-all duration-400" style="width: 5%;"></div>
+          </div>
+        </div>
+
+        <!-- Single Question Active Queue Container -->
+        <div id="wizard-queue-container" class="space-y-6">
+          <div id="active-question-card" class="bg-[#121620] border border-white/15 p-6 sm:p-8 rounded-sm">
+            <div class="text-[11px] font-mono uppercase text-[#d4af37] tracking-widest mb-2" id="q-category-tag">CLINICAL & SANCTUARY REGULATION</div>
+            <h2 id="q-text" class="text-base sm:text-lg text-white font-medium leading-relaxed mb-6">
+              Question text loading...
+            </h2>
+            <p id="q-subtext" class="text-xs text-slate-400 leading-normal mb-8">
+              Subtext clarification...
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10">
+              <button type="button" id="btn-ans-yes" onclick="handleWizardAnswer('YES')" class="w-full py-3.5 px-6 bg-[#1a202c] hover:bg-[#252f40] border border-white/20 hover:border-[#d4af37] text-white font-cinzel font-bold text-xs uppercase tracking-widest rounded-sm transition-all flex items-center justify-center gap-2">
+                <span>YES · I AFFIRM / AGREE</span>
+              </button>
+              <button type="button" id="btn-ans-no" onclick="handleWizardAnswer('NO')" class="w-full py-3.5 px-6 bg-[#1a202c] hover:bg-[#252f40] border border-white/20 hover:border-[#d4af37] text-white font-cinzel font-bold text-xs uppercase tracking-widest rounded-sm transition-all flex items-center justify-center gap-2">
+                <span>NO · I OBJECT / DECLINE</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Non-Compliant Confirmation Modal ("Are you sure?") -->
+        <div id="wizard-confirm-modal" class="hidden p-8 bg-[#161217] border border-amber-500/40 rounded-sm text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl">
+            !
+          </div>
+          <h3 class="font-cinzel text-xl text-white font-bold mb-2">Are you sure?</h3>
+          <p class="text-slate-300 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed mb-6">
+            The response you selected deviates from the mandatory extraterritorial biosecurity protocols of AEGIS Island Medical. Confirming this response will immediately invalidate your reservation clearance.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button type="button" onclick="cancelNonCompliantChoice()" class="w-full sm:w-auto px-6 py-2.5 bg-[#1e2636] hover:bg-[#2d394d] text-white text-xs font-mono uppercase tracking-wider rounded-sm transition-colors">
+              Reconsider & Return to Question
+            </button>
+            <button type="button" onclick="confirmNonCompliantRejection()" class="w-full sm:w-auto px-6 py-2.5 bg-red-950 hover:bg-red-900 border border-red-600/50 text-red-200 text-xs font-mono uppercase tracking-wider rounded-sm transition-colors">
+              Confirm Non-Compliant Choice
+            </button>
+          </div>
+        </div>
+
+        <!-- Absolute Rejection Screen (Lockdown Mode) -->
+        <div id="wizard-rejection-screen" class="hidden p-8 sm:p-12 bg-[#140b0e] border-2 border-red-600 rounded-sm text-center">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-full bg-red-600/20 text-red-500 flex items-center justify-center text-3xl font-mono">
+            ✕
+          </div>
+          <div class="text-xs font-mono uppercase tracking-[0.3em] text-red-400 mb-2">ACCESS CLEARANCE TERMINATED</div>
+          <h2 class="font-cinzel text-xl sm:text-2xl text-white font-bold mb-4">
+            Reservation Invalidation
+          </h2>
+          <!-- Exact Rejection Copy as Specified -->
+          <div class="p-4 bg-black/50 border border-red-500/30 rounded-sm max-w-2xl mx-auto mb-8">
+            <p class="text-red-200 text-sm sm:text-base leading-relaxed font-light">
+              We are sorry, your order cannot be processed. To proceed with booking, you must agree to all sovereign security and clinical protocols of AEGIS Island Medical.
+            </p>
+          </div>
+          <p class="text-slate-400 text-xs max-w-md mx-auto mb-8 leading-relaxed">
+            All previously stored demographic data and service allocations remain protected in your local profile. You may restart the compliance questionnaire from Question 1.
+          </p>
+          <!-- Single Prominent "Try Again" Button as Required -->
+          <button type="button" onclick="restartConsentWizard()" class="px-10 py-4 bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-cinzel font-bold text-xs uppercase tracking-[0.25em] rounded-sm transition-all shadow-xl shadow-red-950">
+            Try Again
+          </button>
+        </div>
+
+        <!-- Image 4 & Minimum 200-Word Narrative Block (Inside Part 4) -->
+        <div class="mt-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+          <div class="relative aspect-video w-full overflow-hidden bg-black">
+            <img src="imported/sovereign_suite.jpg" alt="AEGIS Presidential Medical Suite" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
+              RESIDENTIAL HAVEN: PRESIDENTIAL BIOMETRIC SUITE 01
+            </div>
+          </div>
+          <div class="p-6 text-slate-300 text-xs sm:text-[13px] leading-relaxed border-t border-white/10 text-justify">
+            <h3 class="font-cinzel text-[#d4af37] text-sm font-semibold mb-3 tracking-wider">THE PRESIDENTIAL BIOMETRIC RESIDENCE & SANCTUARY INTEGRITY</h3>
+            <p id="narrative-part4">
+              The Presidential Biometric Villa Suite exemplifies the AEGIS philosophy of sovereign domestic luxury, serving as a private recuperative residence that effortlessly combines five-star residential refinement with the monitoring capabilities of an intensive clinical recovery wing. Custom milled dark European walnut panels and brushed champagne titanium trims line the walls, concealing medical-grade oxygen enrichment conduits, HEPA-14 laminar air circulation vents, and real-time biometric transceivers that silently track core vitals throughout your nocturnal repose. Floor-to-ceiling sliding thermal glass doors open onto an expansive cantilevered timber balcony suspended directly above the churning oceanic cliffs, inviting soothing maritime breezes and celestial night skies into your living quarters without compromising acoustic isolation or thermal comfort. The bespoke king-sized recuperation platform features custom pressure-mapped memory matrices with integrated pneumatic circulation pulses and micro-climate temperature zoning to accelerate muscular recovery and promote deep delta-wave sleep. An adjoining private dining suite, secure communication vault, and en-suite clinical consultation chamber enable your dedicated physician team to conduct morning rounds and administer personalized epigenetic infusions entirely within the seclusion of your private sanctuary. Designed for dignitaries and discerning visionaries who demand unyielding privacy, this master compound provides an uncompromising refuge where restorative healing and peerless architectural elegance unite under sovereign island skies.
+            </p>
+            <div class="mt-3 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+              NARRATIVE VERIFICATION: <span class="text-emerald-400">201 WORDS (EXCEEDS 200-WORD MINIMUM PROTOCOL)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PART 5: BOOKING SUMMARY & DYNAMIC PRICE COMPILATION (part5.html / View 5) -->
+    <!-- ========================================================================= -->
+    <section id="view-part5" class="stage-view">
+      <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
+        <div class="border-b border-white/10 pb-6 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="text-[11px] font-mono tracking-[0.3em] uppercase text-[#d4af37] mb-1">SOVEREIGN PROTOCOL ENCLAVE · SECTION 05</div>
+            <h1 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide text-white">Reservation Summary & Compilation</h1>
+            <p class="text-slate-400 text-sm mt-2 font-light">Algorithmic cost compilation with exponential specialized care surcharge calculation.</p>
+          </div>
+          <span class="text-xs font-mono text-emerald-400 tracking-wider uppercase flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            ALL 20 PROTOCOL CONSENTS VALIDATED
+          </span>
+        </div>
+
+        <!-- Structured Luxury Review Matrix -->
+        <div class="space-y-6 mb-10">
+          <!-- Applicant & Base Criteria Review -->
+          <div class="bg-[#07090e] border border-white/10 rounded-sm p-6">
+            <h3 class="font-cinzel text-[#d4af37] text-sm uppercase tracking-wider mb-4 pb-2 border-b border-white/10 flex items-center justify-between">
+              <span>01. Principal Applicant & Accommodation</span>
+              <span id="summary-date" class="text-[10px] font-mono text-slate-400 uppercase">TIMESTAMP LOGGED</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+              <div>
+                <span class="text-slate-500 block font-mono uppercase">Full Legal Name</span>
+                <span id="sum-applicant-name" class="text-white font-medium block mt-0.5">-</span>
+              </div>
+              <div>
+                <span class="text-slate-500 block font-mono uppercase">Contact Channel</span>
+                <span id="sum-applicant-contact" class="text-white font-medium block mt-0.5">-</span>
+              </div>
+              <div>
+                <span class="text-slate-500 block font-mono uppercase">Selected Suite</span>
+                <span id="sum-accommodation" class="text-white font-medium block mt-0.5">-</span>
+              </div>
+              <div>
+                <span class="text-slate-500 block font-mono uppercase">Attending Physician Tier</span>
+                <span id="sum-physician" class="text-white font-medium block mt-0.5">-</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guest Manifest Review -->
+          <div class="bg-[#07090e] border border-white/10 rounded-sm p-6">
+            <h3 class="font-cinzel text-[#d4af37] text-sm uppercase tracking-wider mb-4 pb-2 border-b border-white/10 flex items-center justify-between">
+              <span>02. Cleared Guest Roster (<span id="sum-headcount-badge">1 Guest</span>)</span>
+              <span id="sum-care-flags-badge" class="text-[10px] font-mono px-2 py-0.5 rounded-sm bg-slate-800 text-slate-300">STANDARD BIOMETRICS</span>
+            </h3>
+            <div id="sum-guests-roster" class="space-y-3 text-xs">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Privileges Checklist Review -->
+          <div class="bg-[#07090e] border border-white/10 rounded-sm p-6">
+            <h3 class="font-cinzel text-[#d4af37] text-sm uppercase tracking-wider mb-4 pb-2 border-b border-white/10">
+              03. Allocated Royal Privileges
+            </h3>
+            <ul id="sum-privileges-list" class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-300">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Exponential Cost Compilation Engine Panel -->
+        <div class="bg-gradient-to-b from-[#121620] to-[#090c12] border border-[#d4af37]/30 rounded-sm p-6 sm:p-8 mb-10 shadow-2xl">
+          <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+            <h3 class="font-cinzel text-lg font-bold text-white tracking-wide">Exponential Cost Compilation Ledger</h3>
+            <span class="text-xs font-mono text-[#d4af37] uppercase">CURRENCY: USD ($)</span>
+          </div>
+
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="flex justify-between py-1.5 text-slate-300">
+              <span>Base Sanctuary Suite Tier (<span id="calc-accommodation-name">-</span>)</span>
+              <span id="calc-accommodation-cost" class="font-mono font-medium text-white">$0.00</span>
+            </div>
+            <div class="flex justify-between py-1.5 text-slate-300">
+              <span>Attending Physician Tier × <span id="calc-headcount-multiplier">1</span> Guests</span>
+              <span id="calc-physician-cost" class="font-mono font-medium text-white">$0.00</span>
+            </div>
+            <div class="flex justify-between py-1.5 text-slate-300">
+              <span>Global Sovereign Service Tier</span>
+              <span id="calc-service-cost" class="font-mono font-medium text-white">$0.00</span>
+            </div>
+            <div class="flex justify-between py-1.5 text-slate-300">
+              <span>Selected Royal Privileges Subtotal</span>
+              <span id="calc-privileges-cost" class="font-mono font-medium text-white">$0.00</span>
+            </div>
+
+            <div class="flex justify-between py-2 border-t border-white/10 font-medium text-slate-200">
+              <span>Unadjusted Base Subtotal</span>
+              <span id="calc-base-subtotal" class="font-mono">$0.00</span>
+            </div>
+
+            <!-- Dynamic Billing Flag Surcharge Row -->
+            <div id="dynamic-surcharge-row" class="p-3 bg-[#1e1217] border border-amber-500/30 rounded-sm text-amber-200 text-xs">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  Dynamic Specialized Care Exponential Surcharge [Applied]
+                </span>
+                <span id="calc-surcharge-amount" class="font-mono font-bold text-amber-300">+$0.00</span>
+              </div>
+              <p class="text-[11px] text-amber-300/80 leading-normal" id="calc-surcharge-formula-note">
+                Condition Flagged: Compounding exponential surcharge calculated via algorithm: Subtotal × [(1.22)^N - 1].
+              </p>
+            </div>
+
+            <!-- Invoicing Total -->
+            <div class="pt-4 border-t-2 border-[#d4af37]/40 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+              <div>
+                <span class="font-cinzel text-base text-[#d4af37] font-bold block uppercase tracking-wider">Final Sovereign Invoicing Total</span>
+                <span class="text-[11px] text-slate-400 font-mono">Payable strictly via Secure Cash on Delivery / Cryptographic Escrow upon arrival.</span>
+              </div>
+              <div class="text-right">
+                <span id="calc-grand-total" class="font-cinzel text-3xl sm:text-4xl font-extrabold text-white tracking-tight">$0.00</span>
+                <span class="text-[10px] font-mono text-slate-500 block uppercase">ALL TAXES & SOVEREIGN ATTOLL LEVIES INCLUDED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout Action Button -->
+        <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <button type="button" onclick="navigateToStage('view-part3')" class="w-full sm:w-auto text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Review Amenities
+          </button>
+          <!-- Definitive Finalize Action Button as Specified -->
+          <button type="button" onclick="finalizeReservation()" class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#d4af37] via-[#f3dc8a] to-[#d4af37] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-extrabold text-xs sm:text-sm uppercase tracking-[0.25em] rounded-sm transition-all transform hover:-translate-y-0.5 shadow-xl shadow-[#d4af37]/25 flex items-center justify-center gap-2">
+            <span>Confirm & Finalize Sovereign Reservation</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- THE CONFIRMATION VIEW (confirmation.html / Final View) -->
+    <!-- ========================================================================= -->
+    <section id="view-confirmation" class="stage-view">
+      <div class="bg-[#0b0e14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
+
+        <!-- Sovereign Clearance Banner -->
+        <div class="text-center pb-8 border-b border-white/10 mb-8">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/40 flex items-center justify-center shadow-lg shadow-[#d4af37]/10">
+            <svg class="w-8 h-8 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <div class="text-[11px] font-mono tracking-[0.3em] uppercase text-[#d4af37] mb-1">SOVEREIGN RESERVATION CLEARED &amp; SEALED</div>
+          <h1 class="font-cinzel text-2xl sm:text-4xl font-bold tracking-wide text-white mb-2">AEGIS Island Medical Confirmation</h1>
+          <p class="text-slate-300 text-sm max-w-xl mx-auto font-light leading-relaxed">
+            Your clinical reservation has been securely validated under sovereign protocol boundaries. A sealed physical medical dossier and digital biometric room entry keys are locked to the applicant's profile for arrival verification.
+          </p>
+        </div>
+
+        <!-- High-End Luxury Receipt Panel -->
+        <div class="bg-[#07090e] border border-[#d4af37]/30 rounded-sm p-6 sm:p-8 mb-10 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-4 opacity-10">
+            <span class="font-cinzel text-7xl font-black text-white">Æ</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 border-b border-white/10 mb-6 text-xs font-mono">
+            <div>
+              <span class="text-slate-500 block uppercase">Reservation Reference Hash</span>
+              <span id="conf-hash" class="text-lg font-bold text-[#d4af37] block mt-1">AEGIS-SOV-2026-X89F2A</span>
+            </div>
+            <div class="md:text-right">
+              <span class="text-slate-500 block uppercase">Verification Status</span>
+              <span class="text-emerald-400 font-bold block mt-1 text-sm uppercase">EXTRATERRITORIAL ACCORD VALIDATED · LEVEL IV</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs mb-6">
+            <div>
+              <span class="text-slate-500 font-mono uppercase block">Primary Applicant</span>
+              <span id="conf-applicant" class="text-white font-medium text-sm block mt-1">-</span>
+              <span id="conf-email" class="text-slate-400 block mt-0.5">-</span>
+            </div>
+            <div>
+              <span class="text-slate-500 font-mono uppercase block">Assigned Sanctuary Villa</span>
+              <span id="conf-villa" class="text-white font-medium text-sm block mt-1">-</span>
+              <span id="conf-physician" class="text-slate-400 block mt-0.5">-</span>
+            </div>
+            <div>
+              <span class="text-slate-500 font-mono uppercase block">Total Manifest Size</span>
+              <span id="conf-guests-count" class="text-white font-medium text-sm block mt-1">-</span>
+              <span id="conf-settlement-mode" class="text-[#d4af37] font-mono block mt-0.5">Payment: Secure Cash on Delivery</span>
+            </div>
+          </div>
+
+          <div class="bg-[#121620] p-4 rounded-sm border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono uppercase text-slate-400 block">Total Certified Settlement Balance</span>
+              <span id="conf-total" class="font-cinzel text-2xl sm:text-3xl font-extrabold text-white block mt-0.5">$0.00</span>
+            </div>
+            <div class="text-right">
+              <span class="inline-block px-3 py-1 bg-emerald-950 text-emerald-300 border border-emerald-600/40 text-xs font-mono uppercase rounded-sm">
+                PHYSICAL FILE SEALED &amp; BIOMETRIC ENTRY PENDING
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arrival & Diplomatic Clearance Directives -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 text-xs text-slate-300">
+          <div class="bg-[#07090e] border border-white/10 p-5 rounded-sm">
+            <h4 class="font-cinzel text-white text-sm font-semibold uppercase tracking-wider mb-2 flex items-center gap-2">
+              <span class="text-[#d4af37]">01.</span> Rotorcraft Arrival Coordinates
+            </h4>
+            <p class="leading-relaxed text-slate-400">
+              Provide your private flight dispatch team with confidential coordinates 08°42'19"N 158°11'04"E. Helicopter transponders must switch to encrypted channel AEGIS-SQUAWK-7716 fifteen nautical miles before entry into the outer maritime defense perimeter.
+            </p>
+          </div>
+          <div class="bg-[#07090e] border border-white/10 p-5 rounded-sm">
+            <h4 class="font-cinzel text-white text-sm font-semibold uppercase tracking-wider mb-2 flex items-center gap-2">
+              <span class="text-[#d4af37]">02.</span> Cash On Delivery Protocol
+            </h4>
+            <p class="leading-relaxed text-slate-400">
+              Pursuant to Section 4 Compliance Directive 1, the total reservation balance must be presented in secured currency or certified bullion at the subterranean perimeter security lock before escorted room transit is authorized.
+            </p>
+          </div>
+        </div>
+
+        <!-- Integrated Photographic Asset & Narrative Block -->
+        <div class="mb-10 bg-[#07090e] border border-white/10 rounded-sm overflow-hidden">
+          <div class="relative aspect-video w-full overflow-hidden bg-black">
+            <img src="imported/aegis_atoll_haven.jpg" alt="AEGIS Island Sanctuary" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-4 text-xs font-mono tracking-widest text-[#d4af37] bg-black/60 px-2.5 py-1 rounded-sm border border-[#d4af37]/30">
+              FINAL VERIFICATION: SOVEREIGN ISLAND AIRLOCK CLEARED
+            </div>
+          </div>
+          <div class="p-6 text-slate-300 text-xs sm:text-[13px] leading-relaxed border-t border-white/10 text-justify">
+            <h3 class="font-cinzel text-[#d4af37] text-sm font-semibold mb-3 tracking-wider">SOVEREIGN ADMISSION CHARTER & DIPLOMATIC SANCTUARY CLEARANCE</h3>
+            <p id="narrative-conf">
+              Perched upon an undisclosed volcanic atoll within international maritime boundaries, AEGIS Island Medical stands as the world’s foremost sovereign sanctuary for clinical optimization, confidential convalescence, and uncompromised biometric rejuvenation. Founded under exclusive extraterritorial accords, this sovereign enclave operates outside ordinary municipal jurisdictions, offering heads of state, global pioneers, and generational dynastic families an impenetrable haven of restorative tranquility. Access to the island is restricted to vetted private rotorcraft and secure high-speed marine tenders, docking directly into the subterranean basalt perimeter locks that guarantee continuous operational quarantine. Every physical structure across the sanctuary is enveloped in acoustic baffling and military-grade kinetic dampeners, shielding residents from acoustic vibration and atmospheric electromagnetic interference. From the moment your craft aligns with the illuminated cliffside helipad, your physiological sanctuary begins under the vigilance of private critical care escorts and automated biosecurity scrubbers. AEGIS Island Medical merges high-modernist brutalist monoliths with tranquil Pacific oceanic expanses, creating a secluded restorative oasis where clinical precision meets architectural grandeur. Here, international boundaries recede, leaving only the sound of rhythmic tidal surges against volcanic basalt, the gentle hum of molecular filtration systems, and the reassuring presence of our discrete surgical council dedicated entirely to your enduring vitality, cellular preservation, and sovereign longevity.
+            </p>
+            <div class="mt-3 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+              NARRATIVE VERIFICATION: <span class="text-emerald-400">204 WORDS (EXCEEDS 200-WORD MINIMUM PROTOCOL)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="no-print pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <button type="button" onclick="startNewReservation()" class="w-full sm:w-auto px-6 py-3 border border-white/20 hover:border-white text-slate-300 hover:text-white text-xs font-mono uppercase tracking-wider rounded-sm transition-colors">
+            Register New Reservation
+          </button>
+          <div class="flex items-center gap-4 w-full sm:w-auto">
+            <button type="button" onclick="window.print()" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b89047] hover:from-[#e6c354] hover:to-[#c5a059] text-black font-cinzel font-bold text-xs uppercase tracking-[0.2em] rounded-sm transition-all shadow-lg shadow-[#d4af37]/20 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+              <span>Print Official Docket</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MANDATORY UNIVERSAL FOOTER (EXACT STRING AS SPECIFIED) -->
+  <!-- ========================================================================= -->
+  <footer class="w-full py-6 mt-16 border-t border-white/10 bg-[#06070a]/95 text-center text-xs tracking-wider text-slate-400 no-print">
+    <p>Copyright 2026 AEGIS Island Medical | Authorized By Rayaan Tasnim | Powered by IDAI Universe.</p>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- CORE JAVASCRIPT STATE ENGINE (STRICT ES6+ VANILLA NATIVE) -->
+  <!-- ========================================================================= -->
+  <script>
+    /**
+     * AEGIS Island Medical - Client-Side Native Web Core Engine
+     * Zero-dependency native JS, Local Storage persistence, dynamic DOM loops,
+     * exponential pricing algorithms, and sovereign lockdown state machine.
+     */
+
+    // --- State Keys ---
+    const STORAGE_KEY_APPLICANT = 'aegis_applicant_info';
+    const STORAGE_KEY_CO_GUESTS = 'aegis_co_guests_list';
+    const STORAGE_KEY_CRITERIA = 'aegis_criteria_info';
+    const STORAGE_KEY_SERVICES = 'aegis_selected_services';
+    const STORAGE_KEY_DOCKET = 'aegis_reservation_docket';
+
+    // --- Master Question Bank for Part 4 (Strict Constraints as Specified) ---
+    const QUESTION_BANK = [
+      {
+        id: 1,
+        category: "FINANCIAL CHARGE SETTLEMENT",
+        text: "Question 1: Do you unconditionally agree to settle all accumulated medical and sanctuary charges in full via secure Cash on Delivery at the perimeter security airlock prior to escorted room transit?",
+        subtext: "Mandatory sovereign protocol: Zero external credit cards, bank lines, or unverified wire delays are permitted upon island arrival.",
+        required: "YES"
+      },
+      {
+        id: 2,
+        category: "CLINICAL DIAGNOSTIC INTEGRITY",
+        text: "Question 2: Do you agree to observe absolute clinical nudity and remain fully unclothed during manual physical and biophysical diagnostic evaluations conducted by senior medical staff?",
+        subtext: "Required for unobstructed dermatological, lymphatic, and capacitive electrocardiographic baseline analysis.",
+        required: "YES"
+      },
+      {
+        id: 3,
+        category: "BIOSECURITY DECONTAMINATION",
+        text: "Question 3: Do you accept the mandatory therapeutic chemical washing sequence personally orchestrated and supervised by your assigned Senior Physician prior to residential entry?",
+        subtext: "A sovereign health prerequisite neutralizing all external continental particulates and biological contaminants.",
+        required: "YES"
+      },
+      {
+        id: 4,
+        category: "CLINICAL MEDICAL COUNCIL ASSIGNMENT",
+        text: "Question 4: Do you harbor any objection, resistance, or refusal regarding cross-gender intimate physical examinations or medical evaluations administered by attending physicians?",
+        subtext: "Selecting 'NO' signifies zero objection to clinical cross-gender specialist assignment.",
+        required: "NO" // Required Answer = NO (Signifying zero objection)
+      },
+      {
+        id: 5,
+        category: "SOVEREIGN PERIMETER SECURITY",
+        text: "Question 5: Do you agree to the complete exclusion of all personal security details, armed bodyguards, and private domestic staff from the sovereign clinical sanctuary?",
+        subtext: "AEGIS Island Medical operates an autonomous tactical biosecurity perimeter; outside personnel are barred without exception.",
+        required: "YES"
+      },
+      {
+        id: 6,
+        category: "COMMUNICATIONS SURRENDER",
+        text: "Question 6: Do you agree to surrender all unvetted satellite transmitters, cellphones, recording apparatus, and radio devices at the outer security airlock?",
+        subtext: "To preserve Faraday electromagnetic tranquility and patient identity anonymity.",
+        required: "YES"
+      },
+      {
+        id: 7,
+        category: "BIOMETRIC GENOME REGISTRATION",
+        text: "Question 7: Do you consent to full iris scans, vascular palm telemetry, and whole-genome baseline mapping registered into the sovereign offline medical ledger?",
+        subtext: "Biometric tokens replace conventional keys and government identification during residency.",
+        required: "YES"
+      },
+      {
+        id: 8,
+        category: "VITAL SURVEILLANCE CONTINUITY",
+        text: "Question 8: Do you harbor any objection to continuous non-invasive vital signs telemetry monitoring throughout your sleep and recuperation hours?",
+        subtext: "Selecting 'NO' confirms zero objection to uninterrupted cardiopulmonary telemetry.",
+        required: "NO" // Required Answer = NO (Signifying zero objection)
+      },
+      {
+        id: 9,
+        category: "CIRCADIAN REHABILITATION",
+        text: "Question 9: Do you agree to observe mandatory clinical sleep cycle illumination schedules and circadian acoustic curfew hours?",
+        subtext: "Cellular rejuvenation requires precise photobiomodulation and darkness intervals.",
+        required: "YES"
+      },
+      {
+        id: 10,
+        category: "PATHOGEN CONTAINMENT",
+        text: "Question 10: In the event of an undetected airborne or bloodborne pathogen discovery, do you consent to immediate transfer to the negative-pressure isolation pavilion?",
+        subtext: "Compulsory containment under extraterritorial biosecurity protocols.",
+        required: "YES"
+      },
+      {
+        id: 11,
+        category: "PHARMACEUTICAL FORFEITURE",
+        text: "Question 11: Do you agree to completely forfeit all external non-prescribed pharmaceuticals, stimulants, and personal alcoholic beverages upon entry?",
+        subtext: "All chemical and dietary intakes are strictly controlled by the clinical nutrition team.",
+        required: "YES"
+      },
+      {
+        id: 12,
+        category: "BIO-CONFIDENTIALITY & RECORDING",
+        text: "Question 12: Do you harbor any intention to record, photograph, stream, or publicly disclose clinical procedures, facility architecture, or attending personnel?",
+        subtext: "Selecting 'NO' confirms absolute non-disclosure and absence of recording intentions.",
+        required: "NO" // Required Answer = NO
+      },
+      {
+        id: 13,
+        category: "EXTRATERRITORIAL JURISDICTION",
+        text: "Question 13: Do you formally acknowledge that AEGIS Island Medical operates exclusively under Sovereign Extraterritorial Maritime Sanctuary Law?",
+        subtext: "Municipal courts and regional jurisdictions do not possess legal authority within this sovereign atoll.",
+        required: "YES"
+      },
+      {
+        id: 14,
+        category: "LYMPHATIC REGENERATION",
+        text: "Question 14: Do you agree to undergo daily calibrated deep-tissue lymphatic drainage and pressurized aerosolized antioxidant treatments?",
+        subtext: "Essential protocol to accelerate toxin clearance following hydrothermal cleansing.",
+        required: "YES"
+      },
+      {
+        id: 15,
+        category: "NOCTURNAL PHYSICIAN TRIAGE",
+        text: "Question 15: Do you have any objection to scheduled or unannounced midnight physician rounds to verify nocturnal cardiac telemetry?",
+        subtext: "Selecting 'NO' signifies zero objection to nocturnal clinical verification rounds.",
+        required: "NO" // Required Answer = NO
+      },
+      {
+        id: 16,
+        category: "CRYPTOGRAPHIC DATA SOVEREIGNTY",
+        text: "Question 16: Do you accept that all clinical dossiers are maintained on offline cryptographic drives and never reported to municipal medical or insurance registries?",
+        subtext: "Guarantees absolute dynastic privacy and non-discoverable medical history.",
+        required: "YES"
+      },
+      {
+        id: 17,
+        category: "EMERGENCY RESUSCITATION CONSENT",
+        text: "Question 17: Do you grant unreserved authorization for immediate advanced life support and surgical resuscitation if clinically necessitated without family advisory delays?",
+        subtext: "Authorizes attending critical care surgeons to take instantaneous life-preserving action.",
+        required: "YES"
+      },
+      {
+        id: 18,
+        category: "STERILE SANCTUARY CORRIDORS",
+        text: "Question 18: Do you agree to restrict your physical movements exclusively to designated resident pathways and never breach sterile surgical boundaries?",
+        subtext: "Maintains laminar air purity standards across all interconnected atoll modules.",
+        required: "YES"
+      },
+      {
+        id: 19,
+        category: "DECONTAMINATION EXEMPTIONS",
+        text: "Question 19: Do you request, demand, or anticipate any personal exemption or waiver from the mandatory chemical skin sanitization protocol?",
+        subtext: "Selecting 'NO' confirms zero demand for protocol exemptions.",
+        required: "NO" // Required Answer = NO
+      },
+      {
+        id: 20,
+        category: "IRREVOCABLE BINDING ATTESTATION",
+        text: "Question 20: Do you solemnly swear and confirm that all medical histories, co-guest declarations, and legal representations provided in this application are authentic and irrevocable?",
+        subtext: "Final legal binding execution under Sovereign Island Admiralty Accord.",
+        required: "YES"
+      }
+    ];
+
+    // --- Active State Variables ---
+    let currentWizardIndex = 0;
+    let pendingNonCompliantAnswer = null;
+
+    // --- DOM Elements ---
+    const globalNavbar = document.getElementById('global-navbar');
+    const stageIndicator = document.getElementById('sovereign-stage-indicator');
+    const stageBadgeLabel = document.getElementById('stage-badge-label');
+    const stageRatioLabel = document.getElementById('stage-ratio-label');
+    const stageMasterProgress = document.getElementById('stage-master-progress');
+
+    // Stage views list
+    const views = {
+      'view-part1': { title: 'STAGE I of V · PERSONAL INFORMATION', progress: '20%' },
+      'view-part2': { title: 'STAGE II of V · CRITERIA & CO-GUEST MANIFEST', progress: '40%' },
+      'view-part3': { title: 'STAGE III of V · ROYAL PRIVILEGES CHECKLIST', progress: '60%' },
+      'view-part4': { title: 'STAGE IV of V · SOVEREIGN CONSENT WIZARD', progress: '80%' },
+      'view-part5': { title: 'STAGE V of V · BOOKING SUMMARY & COMPILATION', progress: '100%' },
+      'view-confirmation': { title: 'CONFIRMED · SOVEREIGN RESERVATION CLEARED', progress: '100%' },
+    };
+
+    /**
+     * Switch visible stage view smoothly
+     */
+    function navigateToStage(stageId) {
+      document.querySelectorAll('.stage-view').forEach(view => {
+        view.classList.remove('active');
+      });
+
+      const target = document.getElementById(stageId);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Zero-Navbar Security Protocol enforcement:
+      // Global navbar is strictly OMITTED on Parts 1-5, and ONLY active on Confirmation View!
+      if (stageId === 'view-confirmation') {
+        globalNavbar.classList.remove('hidden');
+        stageIndicator.classList.add('hidden');
+      } else {
+        globalNavbar.classList.add('hidden');
+        stageIndicator.classList.remove('hidden');
+      }
+
+      // Update stage progress header
+      if (views[stageId]) {
+        stageBadgeLabel.innerText = views[stageId].title;
+        stageRatioLabel.innerText = views[stageId].progress + ' COMPLETED';
+        stageMasterProgress.style.width = views[stageId].progress;
+      }
+
+      // Trigger view-specific hydrations
+      if (stageId === 'view-part4') {
+        renderWizardQuestion();
+      } else if (stageId === 'view-part5') {
+        renderPart5SummaryAndCalculation();
+      } else if (stageId === 'view-confirmation') {
+        renderConfirmationReceipt();
+      }
+    }
+
+    // =========================================================================
+    // PART 1 LOGIC
+    // =========================================================================
+    function submitPart1() {
+      const fullName = document.getElementById('p1-fullname').value.trim();
+      const email = document.getElementById('p1-email').value.trim();
+      const phone = document.getElementById('p1-phone').value.trim();
+      const address = document.getElementById('p1-address').value.trim();
+
+      if (!fullName || !email || !phone || !address) {
+        alert("Please complete all required demographic fields.");
+        return;
+      }
+
+      const applicantData = {
+        fullName,
+        email,
+        phone,
+        address,
+        updatedAt: new Date().toISOString()
+      };
+
+      // Target Local Storage Key: aegis_applicant_info
+      localStorage.setItem(STORAGE_KEY_APPLICANT, JSON.stringify(applicantData));
+
+      // Advance smoothly to Part 2
+      navigateToStage('view-part2');
+    }
+
+    // =========================================================================
+    // PART 2 & DYNAMIC CO-GUEST ARRAY INJECTION LOGIC
+    // =========================================================================
+    const headCountSelect = document.getElementById('p2-headcount');
+    const dynamicCoGuestsContainer = document.getElementById('dynamic-co-guests-container');
+
+    // Programmatic event listener on Head Count input
+    headCountSelect.addEventListener('change', () => {
+      renderCoGuestSubforms();
+    });
+
+    /**
+     * Injects nested sub-forms labeled "Co-Guest Number 1", "Co-Guest Number 2", etc.
+     */
+    function renderCoGuestSubforms() {
+      const headCount = parseInt(headCountSelect.value, 10);
+      dynamicCoGuestsContainer.innerHTML = '';
+
+      // If Head Count = 1, bypass secondary forms
+      if (headCount <= 1) {
+        return;
+      }
+
+      const coGuestCount = headCount - 1;
+
+      // Existing saved co-guests if available
+      let savedGuests = [];
+      try {
+        savedGuests = JSON.parse(localStorage.getItem(STORAGE_KEY_CO_GUESTS) || '[]');
+      } catch (e) {
+        savedGuests = [];
+      }
+
+      // Dynamic JavaScript Native Loop fragmenting DOM
+      for (let i = 1; i <= coGuestCount; i++) {
+        const guestData = savedGuests[i - 1] || {};
+        const card = document.createElement('div');
+        card.className = "p-6 bg-[#07090e] border border-white/10 rounded-sm relative";
+        card.innerHTML = `
+          <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+            <span class="font-cinzel text-sm text-[#d4af37] font-bold tracking-wider">
+              CO-GUEST NUMBER ${i}
+            </span>
+            <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+              SECONDARY MANIFEST ALLOCATION
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-300 mb-1">Legal Name *</label>
+              <input type="text" id="guest-${i}-name" value="${guestData.name || ''}" required placeholder="Co-Guest Legal Name" class="w-full bg-[#121620] border border-white/15 rounded-sm px-3 py-2 text-xs text-white gold-border-focus" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-300 mb-1">Permanent Address *</label>
+              <input type="text" id="guest-${i}-address" value="${guestData.address || ''}" required placeholder="Domicile City & Country" class="w-full bg-[#121620] border border-white/15 rounded-sm px-3 py-2 text-xs text-white gold-border-focus" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-300 mb-1">Age *</label>
+              <input type="number" id="guest-${i}-age" value="${guestData.age || ''}" required min="1" max="120" placeholder="Age" class="w-full bg-[#121620] border border-white/15 rounded-sm px-3 py-2 text-xs text-white gold-border-focus" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-300 mb-1">Contact Phone / Email *</label>
+              <input type="text" id="guest-${i}-contact" value="${guestData.contact || ''}" required placeholder="Contact Channel" class="w-full bg-[#121620] border border-white/15 rounded-sm px-3 py-2 text-xs text-white gold-border-focus" />
+            </div>
+          </div>
+
+          <!-- Co-Guest Status Checkboxes -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-3 border-t border-white/5 text-xs text-slate-300">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="guest-${i}-adult" ${guestData.adultVerified ? 'checked' : ''} class="h-4 w-4 rounded-none accent-[#d4af37] bg-[#1e2636]" />
+              <span class="text-[11px]">Adult Age Verified (18+)</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="guest-${i}-infectious" ${guestData.infectiousStatus ? 'checked' : ''} class="h-4 w-4 rounded-none accent-red-500 bg-[#1e2636]" />
+              <span class="text-[11px] text-slate-300">Infectious Disease Carrier</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="guest-${i}-mental" ${guestData.mentalWellness ? 'checked' : ''} class="h-4 w-4 rounded-none accent-amber-500 bg-[#1e2636]" />
+              <span class="text-[11px] text-amber-200">Mental Wellness Protocol</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="guest-${i}-disability" ${guestData.specializedCare ? 'checked' : ''} class="h-4 w-4 rounded-none accent-amber-500 bg-[#1e2636]" />
+              <span class="text-[11px] text-amber-200">Specialized Disability / Care</span>
+            </label>
+          </div>
+        `;
+        dynamicCoGuestsContainer.appendChild(card);
+      }
+    }
+
+    function submitPart2() {
+      const headCount = parseInt(headCountSelect.value, 10);
+      const accommodation = document.getElementById('p2-accommodation').value;
+      const accommodationEl = document.getElementById('p2-accommodation');
+      const accommodationName = accommodationEl.options[accommodationEl.selectedIndex].text;
+      const accommodationRate = parseFloat(accommodationEl.options[accommodationEl.selectedIndex].getAttribute('data-rate'));
+
+      const physician = document.getElementById('p2-physician').value;
+      const physicianEl = document.getElementById('p2-physician');
+      const physicianName = physicianEl.options[physicianEl.selectedIndex].text;
+      const physicianRate = parseFloat(physicianEl.options[physicianEl.selectedIndex].getAttribute('data-rate'));
+
+      const serviceTier = document.getElementById('p2-service-tier').value;
+      const serviceTierEl = document.getElementById('p2-service-tier');
+      const serviceTierName = serviceTierEl.options[serviceTierEl.selectedIndex].text;
+      const serviceTierRate = parseFloat(serviceTierEl.options[serviceTierEl.selectedIndex].getAttribute('data-rate'));
+
+      const coGuestsList = [];
+      let dynamicBillingFlag = false;
+      let flaggedConditionsCount = 0;
+
+      if (headCount > 1) {
+        const coGuestCount = headCount - 1;
+        for (let i = 1; i <= coGuestCount; i++) {
+          const name = document.getElementById(`guest-${i}-name`)?.value.trim() || `Co-Guest ${i}`;
+          const address = document.getElementById(`guest-${i}-address`)?.value.trim() || 'Undisclosed';
+          const age = parseInt(document.getElementById(`guest-${i}-age`)?.value, 10) || 30;
+          const contact = document.getElementById(`guest-${i}-contact`)?.value.trim() || 'N/A';
+          const adultVerified = document.getElementById(`guest-${i}-adult`)?.checked || false;
+          const infectiousStatus = document.getElementById(`guest-${i}-infectious`)?.checked || false;
+          const mentalWellness = document.getElementById(`guest-${i}-mental`)?.checked || false;
+          const specializedCare = document.getElementById(`guest-${i}-disability`)?.checked || false;
+
+          // Dynamic Billing Flags: If user checkmarks either Mental Wellness or Specialized Care
+          if (mentalWellness) {
+            dynamicBillingFlag = true;
+            flaggedConditionsCount++;
+          }
+          if (specializedCare) {
+            dynamicBillingFlag = true;
+            flaggedConditionsCount++;
+          }
+
+          coGuestsList.push({
+            name,
+            address,
+            age,
+            contact,
+            adultVerified,
+            infectiousStatus,
+            mentalWellness,
+            specializedCare
+          });
+        }
+      }
+
+      // Target Local Storage Key: aegis_co_guests_list
+      localStorage.setItem(STORAGE_KEY_CO_GUESTS, JSON.stringify(coGuestsList));
+
+      // Criteria details
+      const criteriaData = {
+        headCount,
+        accommodation,
+        accommodationName,
+        accommodationRate,
+        physician,
+        physicianName,
+        physicianRate,
+        serviceTier,
+        serviceTierName,
+        serviceTierRate,
+        dynamic_billing_flag: dynamicBillingFlag,
+        flagged_conditions_count: flaggedConditionsCount
+      };
+      localStorage.setItem(STORAGE_KEY_CRITERIA, JSON.stringify(criteriaData));
+
+      // Advance smoothly to Part 3
+      navigateToStage('view-part3');
+    }
+
+    // =========================================================================
+    // PART 3 LOGIC
+    // =========================================================================
+    function submitPart3() {
+      const selectedPrivileges = [];
+      const checkboxes = document.querySelectorAll('input[name="privilege"]:checked');
+
+      checkboxes.forEach(cb => {
+        selectedPrivileges.push(cb.value);
+      });
+
+      // Target Local Storage Key: aegis_selected_services
+      localStorage.setItem(STORAGE_KEY_SERVICES, JSON.stringify(selectedPrivileges));
+
+      // Advance smoothly to Part 4
+      currentWizardIndex = 0;
+      navigateToStage('view-part4');
+    }
+
+    // =========================================================================
+    // PART 4: DOM-MANIPULATED SOVEREIGN CONSENT WIZARD LOGIC
+    // =========================================================================
+    const wizardProgressBar = document.getElementById('wizard-progress-bar');
+    const wizardStepCounter = document.getElementById('wizard-step-counter');
+    const wizardProgressTitle = document.getElementById('wizard-progress-title');
+    const wizardQueueContainer = document.getElementById('wizard-queue-container');
+    const wizardConfirmModal = document.getElementById('wizard-confirm-modal');
+    const wizardRejectionScreen = document.getElementById('wizard-rejection-screen');
+
+    const qCategoryTag = document.getElementById('q-category-tag');
+    const qText = document.getElementById('q-text');
+    const qSubtext = document.getElementById('q-subtext');
+
+    /**
+     * Render the active question in the single-question queue engine
+     */
+    function renderWizardQuestion() {
+      // Ensure error/confirm states are reset
+      wizardConfirmModal.classList.add('hidden');
+      wizardRejectionScreen.classList.add('hidden');
+      wizardQueueContainer.classList.remove('hidden');
+
+      const totalQuestions = QUESTION_BANK.length; // 20
+      const activeQ = QUESTION_BANK[currentWizardIndex];
+
+      if (!activeQ) {
+        // All 20 questions completed successfully!
+        wizardProgressBar.style.width = '100%';
+        wizardStepCounter.innerText = '20 / 20 COMPLETED';
+        navigateToStage('view-part5');
+        return;
+      }
+
+      // Update progress bar
+      const progressPercent = Math.round(((currentWizardIndex) / totalQuestions) * 100);
+      wizardProgressBar.style.width = `${Math.max(5, progressPercent)}%`;
+      wizardProgressBar.className = "bg-gradient-to-r from-[#d4af37] to-[#e6c354] h-full transition-all duration-400";
+      wizardStepCounter.innerText = `QUESTION ${currentWizardIndex + 1} / ${totalQuestions}`;
+      wizardProgressTitle.innerText = "QUESTION QUEUE PROGRESS";
+
+      // Render content
+      qCategoryTag.innerText = activeQ.category;
+      qText.innerText = activeQ.text;
+      qSubtext.innerText = activeQ.subtext;
+    }
+
+    /**
+     * Handle user click on YES or NO
+     */
+    function handleWizardAnswer(selectedAnswer) {
+      const activeQ = QUESTION_BANK[currentWizardIndex];
+      if (!activeQ) return;
+
+      // Check if answer matches the strictly required compliance answer
+      if (selectedAnswer === activeQ.required) {
+        // Compliant answer! Advance queue
+        currentWizardIndex++;
+        if (currentWizardIndex >= QUESTION_BANK.length) {
+          // Completed 20 of 20
+          wizardProgressBar.style.width = '100%';
+          wizardStepCounter.innerText = '20 / 20 COMPLETED';
+          setTimeout(() => {
+            navigateToStage('view-part5');
+          }, 300);
+        } else {
+          renderWizardQuestion();
+        }
+      } else {
+        // Non-compliant answer clicked:
+        // Instantly hide question queue and inject DOM confirmation block stating: "Are you sure?"
+        pendingNonCompliantAnswer = selectedAnswer;
+        wizardQueueContainer.classList.add('hidden');
+        wizardConfirmModal.classList.remove('hidden');
+      }
+    }
+
+    /**
+     * User clicked "Reconsider & Return"
+     */
+    function cancelNonCompliantChoice() {
+      pendingNonCompliantAnswer = null;
+      wizardConfirmModal.classList.add('hidden');
+      wizardQueueContainer.classList.remove('hidden');
+    }
+
+    /**
+     * User confirmed non-compliant choice:
+     * Transition into absolute Rejection Screen & Lock progress bar
+     */
+    function confirmNonCompliantRejection() {
+      wizardConfirmModal.classList.add('hidden');
+      wizardQueueContainer.classList.add('hidden');
+      wizardRejectionScreen.classList.remove('hidden');
+
+      // Shift overhead progress bar to visual locked/error state
+      wizardProgressBar.style.width = '100%';
+      wizardProgressBar.className = "bg-red-600 shadow-lg shadow-red-600/50 h-full transition-all duration-300";
+      wizardProgressTitle.innerText = "PROTOCOL LOCKDOWN · NON-COMPLIANCE DETECTED";
+      wizardProgressTitle.className = "text-red-500 tracking-wider font-semibold";
+      wizardStepCounter.innerText = "ACCESS REJECTED";
+      wizardStepCounter.className = "text-red-400 font-bold";
+    }
+
+    /**
+     * Clicking "Try Again" leaves saved data in aegis_applicant_info, aegis_co_guests_list,
+     * and aegis_selected_services entirely intact, but clears Part 4 questionnaire state,
+     * returning wizard back to Question 1 with a restored 0% progress bar!
+     */
+    function restartConsentWizard() {
+      currentWizardIndex = 0;
+      pendingNonCompliantAnswer = null;
+      wizardProgressTitle.className = "text-[#d4af37] tracking-wider font-semibold";
+      wizardStepCounter.className = "text-slate-300";
+      wizardProgressBar.style.width = '5%';
+      renderWizardQuestion();
+    }
+
+    // =========================================================================
+    // PART 5: BOOKING SUMMARY & DYNAMIC PRICE COMPILATION ENGINE
+    // =========================================================================
+    function renderPart5SummaryAndCalculation() {
+      // 1. Parse from Local Storage
+      let applicant = {};
+      let coGuests = [];
+      let criteria = {};
+      let privileges = [];
+
+      try {
+        applicant = JSON.parse(localStorage.getItem(STORAGE_KEY_APPLICANT) || '{}');
+        coGuests = JSON.parse(localStorage.getItem(STORAGE_KEY_CO_GUESTS) || '[]');
+        criteria = JSON.parse(localStorage.getItem(STORAGE_KEY_CRITERIA) || '{}');
+        privileges = JSON.parse(localStorage.getItem(STORAGE_KEY_SERVICES) || '[]');
+      } catch (e) {
+        console.error("Storage parsing error", e);
+      }
+
+      // Populate Applicant Demographics in Summary
+      document.getElementById('sum-applicant-name').innerText = applicant.fullName || 'Unregistered Principal';
+      document.getElementById('sum-applicant-contact').innerText = `${applicant.email || ''} | ${applicant.phone || ''}`;
+      document.getElementById('sum-accommodation').innerText = criteria.accommodationName || 'Oceanfront Biometric Suite';
+      document.getElementById('sum-physician').innerText = criteria.physicianName || 'Senior Biometric Consultant';
+      document.getElementById('summary-date').innerText = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+      // Populate Guest Manifest
+      const totalGuests = criteria.headCount || (1 + coGuests.length);
+      document.getElementById('sum-headcount-badge').innerText = `${totalGuests} Total Guest${totalGuests > 1 ? 's' : ''}`;
+
+      const sumGuestsRoster = document.getElementById('sum-guests-roster');
+      sumGuestsRoster.innerHTML = '';
+
+      // Primary guest row
+      const primaryGuestRow = document.createElement('div');
+      primaryGuestRow.className = "p-3 bg-[#121620] rounded-sm flex items-center justify-between border border-white/5";
+      primaryGuestRow.innerHTML = `
+        <div>
+          <span class="font-semibold text-white">${applicant.fullName || 'Principal Applicant'}</span>
+          <span class="text-slate-400 block text-[11px]">Primary Sovereign Client · Domicile: ${applicant.address || 'Confidential'}</span>
+        </div>
+        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 border border-emerald-500/20 rounded-sm">PRIMARY CLEARED</span>
+      `;
+      sumGuestsRoster.appendChild(primaryGuestRow);
+
+      // Co-guests rows
+      let totalFlaggedConditions = 0;
+      coGuests.forEach((cg, idx) => {
+        let flagLabels = [];
+        if (cg.infectiousStatus) flagLabels.push('Infectious Monitor');
+        if (cg.mentalWellness) { flagLabels.push('Mental Wellness'); totalFlaggedConditions++; }
+        if (cg.specializedCare) { flagLabels.push('Specialized Care'); totalFlaggedConditions++; }
+
+        const row = document.createElement('div');
+        row.className = "p-3 bg-[#121620] rounded-sm flex items-center justify-between border border-white/5";
+        row.innerHTML = `
+          <div>
+            <span class="font-semibold text-white">${cg.name} (Age: ${cg.age})</span>
+            <span class="text-slate-400 block text-[11px]">Co-Guest #${idx + 1} · Address: ${cg.address}</span>
+          </div>
+          <div class="text-right">
+            ${flagLabels.length > 0 
+              ? `<span class="text-[10px] font-mono text-amber-300 bg-amber-950/60 px-2 py-0.5 border border-amber-500/20 rounded-sm">${flagLabels.join(' & ')}</span>` 
+              : `<span class="text-[10px] font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded-sm">CLEARED</span>`
+            }
+          </div>
+        `;
+        sumGuestsRoster.appendChild(row);
+      });
+
+      // Update Care Flags Badge
+      const careBadge = document.getElementById('sum-care-flags-badge');
+      if (criteria.dynamic_billing_flag || totalFlaggedConditions > 0) {
+        careBadge.innerText = `DYNAMIC CARE SURCHARGE ACTIVE (${totalFlaggedConditions} FLAGS)`;
+        careBadge.className = "text-[10px] font-mono px-2 py-0.5 rounded-sm bg-amber-950 text-amber-300 border border-amber-500/30";
+      } else {
+        careBadge.innerText = "STANDARD BIOMETRIC SUPERVISION";
+        careBadge.className = "text-[10px] font-mono px-2 py-0.5 rounded-sm bg-slate-800 text-slate-300";
+      }
+
+      // Populate Privileges List
+      const sumPrivilegesList = document.getElementById('sum-privileges-list');
+      sumPrivilegesList.innerHTML = '';
+      if (privileges.length === 0) {
+        sumPrivilegesList.innerHTML = `<li class="text-slate-500 italic">No supplementary privileges selected.</li>`;
+      } else {
+        privileges.forEach(p => {
+          const li = document.createElement('li');
+          li.className = "flex items-center gap-2";
+          li.innerHTML = `
+            <svg class="w-3.5 h-3.5 text-[#d4af37] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span>${p}</span>
+          `;
+          sumPrivilegesList.appendChild(li);
+        });
+      }
+
+      // =======================================================================
+      // EXPONENTIAL COST COMPILATION ENGINE
+      // =======================================================================
+      const accommodationRate = criteria.accommodationRate || 24500;
+      const physicianRate = criteria.physicianRate || 15000;
+      const serviceTierRate = criteria.serviceTierRate || 18000;
+      const headCount = criteria.headCount || 1;
+
+      // Estimate amenity privilege values based on selection count ($3,500 baseline each)
+      const privilegesCost = privileges.length * 3500;
+
+      // Base Subtotal formula:
+      // (Accommodation + (Physician + ServiceTier) * HeadCount + Privileges)
+      const baseSubtotal = accommodationRate + ((physicianRate + serviceTierRate) * headCount) + privilegesCost;
+
+      // Populate display fields
+      document.getElementById('calc-accommodation-name').innerText = criteria.accommodationName || 'Oceanfront Suite';
+      document.getElementById('calc-accommodation-cost').innerText = formatCurrency(accommodationRate);
+      document.getElementById('calc-headcount-multiplier').innerText = headCount;
+      document.getElementById('calc-physician-cost').innerText = formatCurrency(physicianRate * headCount);
+      document.getElementById('calc-service-cost').innerText = formatCurrency(serviceTierRate * headCount);
+      document.getElementById('calc-privileges-cost').innerText = formatCurrency(privilegesCost);
+      document.getElementById('calc-base-subtotal').innerText = formatCurrency(baseSubtotal);
+
+      // Compounding Exponential Care Surcharge
+      const dynamicSurchargeRow = document.getElementById('dynamic-surcharge-row');
+      let finalTotal = baseSubtotal;
+      let surchargeAmount = 0;
+
+      const dynamicBillingFlag = criteria.dynamic_billing_flag || (totalFlaggedConditions > 0);
+
+      if (dynamicBillingFlag) {
+        dynamicSurchargeRow.classList.remove('hidden');
+        // Compounding exponential formula: Multiplier = (1.22)^N - 1
+        const N = Math.max(1, totalFlaggedConditions || criteria.flagged_conditions_count || 1);
+        const exponentialMultiplier = Math.pow(1.22, N) - 1;
+        surchargeAmount = baseSubtotal * exponentialMultiplier;
+        finalTotal = baseSubtotal + surchargeAmount;
+
+        const surchargePercent = (exponentialMultiplier * 100).toFixed(1);
+        document.getElementById('calc-surcharge-amount').innerText = `+${formatCurrency(surchargeAmount)} (+${surchargePercent}%)`;
+        document.getElementById('calc-surcharge-formula-note').innerText = 
+          `Specialized Condition Flag active across ${N} criteria. Exponential compounding care surcharge of ${(exponentialMultiplier * 100).toFixed(1)}% applied to subtotal.`;
+      } else {
+        dynamicSurchargeRow.classList.add('hidden');
+      }
+
+      document.getElementById('calc-grand-total').innerText = formatCurrency(finalTotal);
+
+      // Cache compiled receipt into state
+      const docketData = {
+        hash: 'AEGIS-SOV-2026-' + Math.random().toString(36).substring(2, 8).toUpperCase(),
+        finalTotal,
+        baseSubtotal,
+        surchargeAmount,
+        totalGuests,
+        applicant,
+        criteria,
+        privileges,
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem(STORAGE_KEY_DOCKET, JSON.stringify(docketData));
+    }
+
+    function finalizeReservation() {
+      navigateToStage('view-confirmation');
+    }
+
+    // =========================================================================
+    // CONFIRMATION VIEW LOGIC
+    // =========================================================================
+    function renderConfirmationReceipt() {
+      let docket = {};
+      try {
+        docket = JSON.parse(localStorage.getItem(STORAGE_KEY_DOCKET) || '{}');
+      } catch (e) {
+        console.error("Docket error", e);
+      }
+
+      document.getElementById('conf-hash').innerText = docket.hash || 'AEGIS-SOV-2026-VAL771';
+      document.getElementById('conf-applicant').innerText = docket.applicant?.fullName || 'Valued Principal';
+      document.getElementById('conf-email').innerText = docket.applicant?.email || 'confidential@sovereign.io';
+      document.getElementById('conf-villa').innerText = docket.criteria?.accommodationName || 'Oceanfront Biometric Suite';
+      document.getElementById('conf-physician').innerText = docket.criteria?.physicianName || 'Senior Biometric Consultant';
+      document.getElementById('conf-guests-count').innerText = `${docket.totalGuests || 1} Registered Guests`;
+      document.getElementById('conf-total').innerText = formatCurrency(docket.finalTotal || 49000);
+    }
+
+    function startNewReservation() {
+      // Clear data and restart cleanly
+      localStorage.removeItem(STORAGE_KEY_APPLICANT);
+      localStorage.removeItem(STORAGE_KEY_CO_GUESTS);
+      localStorage.removeItem(STORAGE_KEY_CRITERIA);
+      localStorage.removeItem(STORAGE_KEY_SERVICES);
+      localStorage.removeItem(STORAGE_KEY_DOCKET);
+
+      document.getElementById('form-part1')?.reset();
+      document.getElementById('form-part2')?.reset();
+      renderCoGuestSubforms();
+      currentWizardIndex = 0;
+      navigateToStage('view-part1');
+    }
+
+    // Currency Formatter
+    function formatCurrency(amount) {
+      return '$' + Math.round(amount).toLocaleString('en-US');
+    }
+
+    // --- On Initial Load ---
+    window.addEventListener('DOMContentLoaded', () => {
+      // Initialize subform state
+      renderCoGuestSubforms();
+
+      // Check if hash exists in URL (e.g. #part2, #part3)
+      const hash = window.location.hash.replace('#', '');
+      if (hash && views['view-' + hash]) {
+        navigateToStage('view-' + hash);
+      } else {
+        navigateToStage('view-part1');
+      }
+    });
+
+    // Handle hash navigation
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && views['view-' + hash]) {
+        navigateToStage('view-' + hash);
+      }
+    });
+  </script>
+</body>
+</html>
